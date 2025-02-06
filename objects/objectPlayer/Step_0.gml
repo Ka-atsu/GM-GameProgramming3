@@ -12,6 +12,17 @@ if moveDir != 0 { face = moveDir};
 runType = runKey;
 xspd = moveDir * moveSpd[runType];
 
+#region
+
+// In the Step Event of obj_player
+
+// Update the camera position to follow the player
+view_xview[0] = x - view_wview[0] / 2; // Center the view on the player's X
+view_yview[0] = y - view_hview[0] / 2; // Center the view on the player's Y
+
+
+#endregion
+
 //X collision
 var _subPixel = .5;
 if place_meeting(x + xspd, y, objectWall)
@@ -129,28 +140,13 @@ x += xspd;
 	if !onGround { sprite_index = jumpSpr; };
 	
 	//set the collision mask
-	mask_index = maskSpr;
+	mask_index = maskSpr
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	if place_meeting(x, y, objectSpike) {
+    playerHealth -= 10; // Decrease health on collision
+    if (playerHealth <= 0) {
+        // Trigger death or restart the room
+        // Trigger death or restart the room
+        room_restart();
+	}
+	}	

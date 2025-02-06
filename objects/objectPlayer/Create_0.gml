@@ -1,3 +1,5 @@
+
+
 //Custom functions for player
 function setOnGround(_val = true)
 {
@@ -11,8 +13,12 @@ function setOnGround(_val = true)
 	}
 }
 
+
 //control setup
 controlsSetup();
+
+//Health
+playerHealth = 100; 
 
 //Sprites
 maskSpr = sPlayerIdle;
@@ -52,3 +58,4 @@ coyoteHangTimer = 0;
 //Jump buffer time
 coyoteJumpFrames = 5;
 coyoteJumpTimer = 0;
+
