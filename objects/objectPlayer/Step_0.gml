@@ -12,17 +12,6 @@ if moveDir != 0 { face = moveDir};
 runType = runKey;
 xspd = moveDir * moveSpd[runType];
 
-#region
-
-// In the Step Event of obj_player
-
-// Update the camera position to follow the player
-view_xview[0] = x - view_wview[0] / 2; // Center the view on the player's X
-view_yview[0] = y - view_hview[0] / 2; // Center the view on the player's Y
-
-
-#endregion
-
 //X collision
 var _subPixel = .5;
 if place_meeting(x + xspd, y, objectWall)
@@ -41,6 +30,7 @@ if place_meeting(x + xspd, y, objectWall)
 //Move
 x += xspd;
 
+
 //Y Movement
 	//Gravity
 	if coyoteHangTimer > 0
@@ -53,7 +43,6 @@ x += xspd;
 		//We're no longer on the ground
 		setOnGround(false);
 	}
-	
 	
 	//Reset/Prepare Jumping variables
 	if onGround
@@ -102,7 +91,7 @@ x += xspd;
 		if yspd > termVel { yspd = termVel; };
 	
 		//Collision
-		var _subPixel = .5;
+		_subPixel = .5;
 		if place_meeting( x, y + yspd, objectWall)
 		{
 			//Scoot up to the wall precisely
@@ -129,6 +118,10 @@ x += xspd;
 		y += yspd;
 	#endregion
 	
+	//Wall jump
+	if (!onGround && (place_meeting(x + 1, y, objectWall) || place_meeting(x - 1, y, objectWall))) {
+	   jumpCount = 1;
+	}
 	//Sprite Control
 	//walking
 	if abs(xspd) > 0 { sprite_index = walkSpr; };
@@ -150,3 +143,5 @@ x += xspd;
         room_restart();
 	}
 	}	
+	
+	
