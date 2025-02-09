@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"playerState_FREE",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"playerState_FREE",
+  "parent":{
+    "name":"FunctionScript",
+    "path":"folders/FunctionScript.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
