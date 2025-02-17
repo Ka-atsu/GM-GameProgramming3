@@ -11,10 +11,6 @@ function setOnGround(_val = true)
 	}
 }
 
-
-//control setup
-controlsSetup();
-
 //Health
 playerHealth = 100; 
 
@@ -28,9 +24,9 @@ atkSpr = sPlayerAttack;
 
 //Moving
 face = 1;
-moveDir = 0;
+moveDir = 1;
 runType = 0;
-moveSpd[0] = 2;
+moveSpd[0] = 1.5;
 moveSpd[1] = 3.5;
 xspd = 0;
 yspd = 0;
@@ -58,12 +54,3 @@ coyoteHangTimer = 0;
 coyoteJumpFrames = 5;
 coyoteJumpTimer = 0;
 
-state = PLAYERSTATE.FREE;
-hitByAttack = ds_list_create();
-
-//Enum is like a global variable
-enum PLAYERSTATE
-{
-	FREE,
-	JUMPING
-}
