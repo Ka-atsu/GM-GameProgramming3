@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"playerState_Free",
+  "%Name":"animation_end",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"playerState_Free",
+  "name":"animation_end",
   "parent":{
     "name":"FunctionScript",
     "path":"folders/FunctionScript.yy",

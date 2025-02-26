@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"playerState_Free",
+  "%Name":"playerState_Attack_Slash",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"playerState_Free",
+  "name":"playerState_Attack_Slash",
   "parent":{
     "name":"FunctionScript",
     "path":"folders/FunctionScript.yy",

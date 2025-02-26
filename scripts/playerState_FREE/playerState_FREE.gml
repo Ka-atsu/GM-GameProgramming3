@@ -1,4 +1,4 @@
-function playerState_FREE(){
+function playerState_Free(){
 	//X Movement (Horizontal Movement)
 	moveDir = rightKey - leftkey;
 
@@ -11,11 +11,11 @@ function playerState_FREE(){
 
 	//X collision
 	var _subPixel = .5;
-	if place_meeting(x + xspd, y, objectWall)
+	if place_meeting(x + xspd, y, objWall)
 	{
 		//Scoot up to wall precisely
 		var _pixelCheck = _subPixel * sign(xspd);
-		while !place_meeting(x + _pixelCheck, y, objectWall)
+		while !place_meeting(x + _pixelCheck, y, objWall)
 		{
 			x += _pixelCheck;
 		}
@@ -85,11 +85,11 @@ function playerState_FREE(){
 	
 	//Collision
 	_subPixel = .5;
-	if place_meeting( x, y + yspd, objectWall)
+	if place_meeting( x, y + yspd, objWall)
 	{
 		//Scoot up to the wall precisely
 		var _pixelCheck = _subPixel * sign(yspd);
-		while !place_meeting( x, y + _pixelCheck, objectWall) { y += _pixelCheck };
+		while !place_meeting( x, y + _pixelCheck, objWall) { y += _pixelCheck };
 			
 		//Bonk code
 		if yspd < 0
@@ -102,14 +102,20 @@ function playerState_FREE(){
 	}
 	
 	//Set if I'm on the ground
-	if yspd >= 0 && place_meeting( x, y+1, objectWall)
+	if yspd >= 0 && place_meeting( x, y+1, objWall)
 	{
 		setOnGround(true);
 	}
 	
 	//Move
 	y += yspd;
-
+	
+	//Wall jump
+	if (!onGround && (place_meeting(x + 1, y, objWall) || place_meeting(x - 1, y, objWall))) {
+	   jumpCount = 1;
+	   termVel = 1;
+	} else { termVel = 4}
+	
 	//Sprite Control
 	//walking
 	if abs(xspd) > 0 { sprite_index = walkSpr; };
@@ -122,4 +128,9 @@ function playerState_FREE(){
 	
 	//set the collision mask
 	mask_index = maskSpr
+	
+	if(onGround) {
+		//IF clicked change state
+		if (attackKey) state = PLAYERSTATE.ATTACK_SLASH;
+	}
 }
