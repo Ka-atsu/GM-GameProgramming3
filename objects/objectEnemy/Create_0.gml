@@ -54,3 +54,5 @@ coyoteHangTimer = 0;
 coyoteJumpFrames = 5;
 coyoteJumpTimer = 0;
 
+//Number Stopping so the enemy wont collide when idle
+dynamicNum = 0;

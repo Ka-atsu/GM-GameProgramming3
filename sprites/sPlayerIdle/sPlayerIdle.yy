@@ -25,7 +25,7 @@
   ],
   "name":"sPlayerIdle",
   "nineSlice":null,
-  "origin":9,
+  "origin":7,
   "parent":{
     "name":"Sprites",
     "path":"folders/Sprites.yy",
@@ -83,7 +83,7 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":9,
+    "xorigin":8,
     "yorigin":30,
   },
   "swatchColours":null,

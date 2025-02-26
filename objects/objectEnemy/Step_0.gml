@@ -14,8 +14,10 @@ if (abs(distanceToPlayer) <= followRadius) {
     // Set movement direction based on player's position
     if (distanceToPlayer > 0) {
         moveDir = 1;  // Move right towards the player
+		dynamicNum = 10;
     } else {
         moveDir = -1; // Move left towards the player
+		dynamicNum = -10;
     }
 
     // Retain the movement direction when the player is directly above
@@ -28,6 +30,14 @@ if (abs(distanceToPlayer) <= followRadius) {
 
     // Set the horizontal speed (xspd) based on the move direction and walking speed
     xspd = moveDir * moveSpd[0];  // This makes the dummy move towards the player
+	
+	show_debug_message("xspd: " + string(xspd));
+	// Check for collision with other enemies before moving
+    if (place_meeting(x + dynamicNum, y, objectEnemy)) {
+        // If collision with another enemy is detected, change direction to avoid collision
+       xspd = 0;
+	   
+    }
 
     // X collision handling
     var _subPixel = .5;
