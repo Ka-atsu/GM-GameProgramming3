@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprSpike",
-    "path":"sprites/sprSpike/sprSpike.yy",
+    "name":"sEnemy3Idle",
+    "path":"sprites/sEnemy3Idle/sEnemy3Idle.yy",
   },
   "spriteMaskId":null,
   "visible":true,

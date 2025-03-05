@@ -120,17 +120,17 @@ function playerState_Free(){
 	    termVel = 1;
 		
 	    // Determine which way to face based on which wall is touched
-	    if (touchingRightWall) {
-	        face = -1; // Face left if on the right wall
-	    } else if (touchingLeftWall) {
-	        face = 1; // Face right if on the left wall
-	    }
-		jumpKeyBuffered = false; // Reset the jump key buffer
-	    image_xscale = face;
+	    //if (touchingRightWall) {
+	        //face = -1; // Face left if on the right wall
+	    //} else if (touchingLeftWall) {
+	       // face = 1; // Face right if on the left wall
+	    //}
+		// = false; // Reset the jump key buffer
+	   // image_xscale = face;
 	} else { 
 	    // Reset the character direction based on face when not touching walls
-	    image_xscale = face; // update here insted in draw cuz of some bug
-	    termVel = 4;
+	   // image_xscale = face; // update here insted in draw cuz of some bug
+	    termVel = 10;
 	}
 
 	

@@ -29,8 +29,8 @@ maxHealth = 100;
 enemyHealth = maxHealth; 
 
 //Sprites
-maskSpr = experimentalIdle;
-idleSpr = experimentalIdle;
+maskSpr = sprPlayerIdle;
+idleSpr = sprPlayerIdle;
 walkSpr = sprPlayerWalk;
 runSpr = sprPlayerRun;
 jumpSpr = sprPlayerJump;

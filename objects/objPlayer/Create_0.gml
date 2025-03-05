@@ -31,14 +31,14 @@ atkSpr = sprPlayerAttack;
 face = 1;
 moveDir = 0;
 runType = 0;
-moveSpd[0] = 2;
-moveSpd[1] = 3.5;
+moveSpd[0] = 5;
+moveSpd[1] = 7.5;
 xspd = 0;
 yspd = 0;
 
 //Jumping
 grav = .275;
-termVel = 4;
+termVel = 10;
 onGround = true;
 jumpMax = 2;
 jumpCount = 0;
@@ -46,9 +46,9 @@ jumpHoldTimer = 0;
 
 //Jump values for each successive jump
 jumpHoldFrames[0] = 18;
-jspd[0] = -4;
+jspd[0] = -7;
 jumpHoldFrames[1] = 10;
-jspd[1] = -3.15;
+jspd[1] = -6.15;
 
 //Coyote Time
 //Hang Time

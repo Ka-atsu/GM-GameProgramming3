@@ -1,3 +1,3 @@
-// Reset scale to default when the timer finishes
-global.scale = 1;
+//// Reset scale to default when the timer finishes
+//global.scale = 1;
 

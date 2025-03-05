@@ -16,12 +16,12 @@ gpu_set_blendmode(bm_subtract);
 
 //Simple adjustments on x and y because i dont have the point on middle its on bottom middle
 if (global.scale == 1){
-		with (objectPlayer) {
-		draw_sprite_ext(spr_light, 0, self.x - 250, self.y - 300, global.scale, global.scale, 0, c_white, 1);
+		with (objPlayer) {
+		draw_sprite_ext(sprLight, 0, self.x - 250, self.y - 300, global.scale, global.scale, 0, c_white, 1);
 	}
 }else {
-	with (objectPlayer) {
-		draw_sprite_ext(spr_light, 0, self.x - 380, self.y - 500, global.scale, global.scale, 0, c_white, 1);
+	with (objPlayer) {
+		draw_sprite_ext(sprLight, 0, self.x - 380, self.y - 500, global.scale, global.scale, 0, c_white, 1);
 	}
 }
 
