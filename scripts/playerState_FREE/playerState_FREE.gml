@@ -8,7 +8,7 @@ function playerState_Free(){
 	//Get xspd
 	runType = runKey;
 	xspd = moveDir * moveSpd[runType];
-
+	
 	//X collision
 	var _subPixel = .5;
 	if place_meeting(x + xspd, y, objWall)
@@ -106,15 +106,33 @@ function playerState_Free(){
 	{
 		setOnGround(true);
 	}
-	
+
 	//Move
-	y += yspd;
+	y += yspd
+	
 	
 	//Wall jump
-	if (!onGround && (place_meeting(x + 1, y, objWall) || place_meeting(x - 1, y, objWall))) {
-	   jumpCount = 1;
-	   termVel = 1;
-	} else { termVel = 4}
+	var touchingRightWall = place_meeting(x + 5, y, objWall);
+	var touchingLeftWall = place_meeting(x - 5, y, objWall);
+
+	if (!onGround && (touchingRightWall || touchingLeftWall)) {
+	    jumpCount = 1;
+	    termVel = 1;
+		
+	    // Determine which way to face based on which wall is touched
+	    if (touchingRightWall) {
+	        face = -1; // Face left if on the right wall
+	    } else if (touchingLeftWall) {
+	        face = 1; // Face right if on the left wall
+	    }
+		jumpKeyBuffered = false; // Reset the jump key buffer
+	    image_xscale = face;
+	} else { 
+	    // Reset the character direction based on face when not touching walls
+	    image_xscale = face; // update here insted in draw cuz of some bug
+	    termVel = 4;
+	}
+
 	
 	//Sprite Control
 	//walking
@@ -129,8 +147,6 @@ function playerState_Free(){
 	//set the collision mask
 	mask_index = maskSpr
 	
-	if(onGround) {
-		//IF clicked change state
-		if (attackKey) state = PLAYERSTATE.ATTACK_SLASH;
-	}
+	//IF clicked change state
+	if (attackKey) state = PLAYERSTATE.ATTACK_SLASH;
 }

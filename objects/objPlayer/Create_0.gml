@@ -11,7 +11,6 @@ function setOnGround(_val = true)
 	}
 }
 
-
 //control setup
 controlsSetup();
 

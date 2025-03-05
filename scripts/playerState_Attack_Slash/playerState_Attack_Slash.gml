@@ -1,6 +1,7 @@
 function playerState_Attack_Slash() {
-	//Get my face
+
 	if moveDir != 0 { face = moveDir};
+	// -1 left // 1 right
 	
 	xspd = 0;
 	yspd = 0;
@@ -12,10 +13,11 @@ function playerState_Attack_Slash() {
 		ds_list_clear(hitByAttack);
 	}
 	
-	//Use attack hitbox & check for hits
-	mask_index = sprPlayerHB
+	//Use attack hitbox & check for hits // cannot do it automatically
+	if(face != -1){ mask_index = sprPlayerHB; } else { mask_index = sprPlayerHB_Left;}
+
 	var hitByAttackNow = ds_list_create();
-	// x and y is the position , onject Enemy is the one who will get hit , hitByAttackNow where we will store
+	// x and y is the position , object Enemy is the one who will get hit , hitByAttackNow where we will store
 	var hits = instance_place_list(x , y , objEnemy, hitByAttackNow, false);
 	// if we hit something can be many
 	if(hits > 0) {

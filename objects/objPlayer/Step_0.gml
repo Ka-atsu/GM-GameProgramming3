@@ -22,3 +22,4 @@ switch (state)
 		room_goto_next();
 	}
 	
+	
