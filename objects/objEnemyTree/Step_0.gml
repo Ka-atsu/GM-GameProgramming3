@@ -1,5 +1,5 @@
 // Define the follow radius (this is the maximum distance the player can be for the dummy to follow)
-var followRadius = 200;  // You can adjust this to any value you prefer
+var followRadius = 500;  // You can adjust this to any value you prefer
 
 // Store the previous move direction when checking the player's position
 var prevMoveDir = moveDir;
@@ -32,7 +32,7 @@ if (abs(distanceToPlayer) <= followRadius) {
     xspd = moveDir * moveSpd[0];  // This makes the dummy move towards the player
 	
 	// Check for collision with other enemies before moving
-    if (place_meeting(x + dynamicNum, y, objEnemy)) {
+    if (place_meeting(x + dynamicNum, y, objEnemyTree)) {
         // If collision with another enemy is detected, change direction to avoid collision
        xspd = 0;
 	   
@@ -106,7 +106,7 @@ mask_index = maskSpr;
 // Check if the player collides with the enemy from above
 if (place_meeting(x, y, objPlayer)) {
     // If the player is above the enemy (you can adjust this offset for the player's sprite height)
-    if (objPlayer.y < y - 16) {
+    if (objPlayer.y < y - 100) {
         with (objPlayer) {
             // Only apply jump force if the player is not already falling or jumping
             if (yspd == 0) {  // Ensure the player isn't already in the air
