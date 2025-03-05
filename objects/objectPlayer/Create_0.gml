@@ -21,8 +21,8 @@ controlsSetup();
 playerHealth = 100; 
 
 //Sprites
-maskSpr = sPlayerIdle;
-idleSpr = sPlayerIdle;
+maskSpr = sprPlayerIdle;
+idleSpr = sprPlayerIdle;
 walkSpr = sPlayerWalk;
 runSpr = sPlayerRun;
 jumpSpr = sPlayerJump;
