@@ -11,11 +11,11 @@ function playerState_Free(){
 	
 	//X collision
 	var _subPixel = .5;
-	if place_meeting(x + xspd, y, objWall)
+	if place_meeting(x + xspd, y, obj_ground)
 	{
 		//Scoot up to wall precisely
 		var _pixelCheck = _subPixel * sign(xspd);
-		while !place_meeting(x + _pixelCheck, y, objWall)
+		while !place_meeting(x + _pixelCheck, y, obj_ground)
 		{
 			x += _pixelCheck;
 		}
@@ -85,11 +85,11 @@ function playerState_Free(){
 	
 	//Collision
 	_subPixel = .5;
-	if place_meeting( x, y + yspd, objWall)
+	if place_meeting( x, y + yspd, obj_ground)
 	{
 		//Scoot up to the wall precisely
 		var _pixelCheck = _subPixel * sign(yspd);
-		while !place_meeting( x, y + _pixelCheck, objWall) { y += _pixelCheck };
+		while !place_meeting( x, y + _pixelCheck, obj_ground) { y += _pixelCheck };
 			
 		//Bonk code
 		if yspd < 0
@@ -102,7 +102,7 @@ function playerState_Free(){
 	}
 	
 	//Set if I'm on the ground
-	if yspd >= 0 && place_meeting( x, y+1, objWall)
+	if yspd >= 0 && place_meeting( x, y+1, obj_ground)
 	{
 		setOnGround(true);
 	}
@@ -112,8 +112,8 @@ function playerState_Free(){
 	
 	
 	//Wall jump
-	var touchingRightWall = place_meeting(x + 5, y, objWall);
-	var touchingLeftWall = place_meeting(x - 5, y, objWall);
+	var touchingRightWall = place_meeting(x + 5, y, obj_ground);
+	var touchingLeftWall = place_meeting(x - 5, y, obj_ground);
 
 	if (!onGround && (touchingRightWall || touchingLeftWall)) {
 	    jumpCount = 1;

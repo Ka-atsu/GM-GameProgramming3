@@ -60,12 +60,3 @@ coyoteHangTimer = 0;
 coyoteJumpFrames = 5;
 coyoteJumpTimer = 0;
 
-state = PLAYERSTATE.FREE;
-hitByAttack = ds_list_create();
-
-//Enum is like a global variable
-enum PLAYERSTATE
-{
-	FREE,
-	JUMPING
-}
