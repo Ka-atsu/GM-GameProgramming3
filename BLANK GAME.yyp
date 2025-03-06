@@ -87,6 +87,7 @@
     {"id":{"name":"spr_orb_light","path":"sprites/spr_orb_light/spr_orb_light.yy",},},
     {"id":{"name":"sprBackground","path":"sprites/sprBackground/sprBackground.yy",},},
     {"id":{"name":"sprButton","path":"sprites/sprButton/sprButton.yy",},},
+    {"id":{"name":"sprEnemySpikeIdle","path":"sprites/sprEnemySpikeIdle/sprEnemySpikeIdle.yy",},},
     {"id":{"name":"sprFinish","path":"sprites/sprFinish/sprFinish.yy",},},
     {"id":{"name":"sprHealthBar","path":"sprites/sprHealthBar/sprHealthBar.yy",},},
     {"id":{"name":"sprLight","path":"sprites/sprLight/sprLight.yy",},},
