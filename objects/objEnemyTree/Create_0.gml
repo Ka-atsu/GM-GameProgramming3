@@ -31,10 +31,10 @@ enemyHealth = maxHealth;
 //Sprites
 maskSpr = sEnemy2Idle;
 idleSpr = sEnemy2Idle;
-walkSpr = sprPlayerWalks;
-runSpr = sprPlayerRun;
-jumpSpr = sprPlayerJump;
-atkSpr = sprPlayerAttack;
+walkSpr = sEnemy2Idle;
+//runSpr = sprPlayerRun;
+//jumpSpr = sprPlayerJump;
+//atkSpr = sprPlayerAttack;
 
 //Moving
 face = 1;
