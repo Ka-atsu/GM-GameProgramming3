@@ -31,7 +31,9 @@ switch (state)
 	//go to next room
 	if place_meeting(x,y,objFinish)
 	{
+		audio_stop_sound(bgmRoom1)
 		room_goto_next();
+		audio_play_sound(bgmRoom2, 10, true)
 	}
 	
 	
