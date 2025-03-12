@@ -16,6 +16,14 @@ switch (state)
 		}
 	}	
 	
+	if place_meeting(x, y, objEnemyTree) {
+    playerHealth -= 1; // Decrease health on collision
+	    if (playerHealth <= 0) {
+	        // Trigger death or restart the room
+	        room_restart();
+		}
+	}
+	
 	//go to next room
 	if place_meeting(x,y,objFinish)
 	{

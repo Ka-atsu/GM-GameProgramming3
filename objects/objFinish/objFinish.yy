@@ -32,5 +32,5 @@
     "path":"sprites/sprFinish/sprFinish.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }
