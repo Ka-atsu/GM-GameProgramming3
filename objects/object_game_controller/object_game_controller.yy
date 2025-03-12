@@ -10,8 +10,8 @@
   "name":"object_game_controller",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"z Old Objects",
+    "path":"folders/z Old Objects.yy",
   },
   "parentObjectId":null,
   "persistent":false,

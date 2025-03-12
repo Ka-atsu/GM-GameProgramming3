@@ -28,8 +28,8 @@
   "nineSlice":null,
   "origin":7,
   "parent":{
-    "name":"player",
-    "path":"folders/Sprites/player.yy",
+    "name":"z Old Sprites",
+    "path":"folders/z Old Sprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -40,10 +40,10 @@ if (abs(distanceToPlayer) <= followRadius) {
 
     // X collision handling
     var _subPixel = .5;
-    if (place_meeting(x + xspd, y, obj_ground)) {
+    if (place_meeting(x + xspd, y, objGround)) {
         // Scoot up to the wall precisely
         var _pixelCheck = _subPixel * sign(xspd);
-        while (!place_meeting(x + _pixelCheck, y, obj_ground)) {
+        while (!place_meeting(x + _pixelCheck, y, objGround)) {
             x += _pixelCheck;
         }
         // Set xspd to zero if colliding
@@ -75,10 +75,10 @@ if (!onGround) {
 
 // Y Collision handling
 var _subPixel = .5;
-if (place_meeting(x, y + yspd, obj_ground)) {
+if (place_meeting(x, y + yspd, objGround)) {
     // Scoot up to the wall precisely
     var _pixelCheck = _subPixel * sign(yspd);
-    while (!place_meeting(x, y + _pixelCheck, obj_ground)) {
+    while (!place_meeting(x, y + _pixelCheck, objGround)) {
         y += _pixelCheck;
     }
     // Stop vertical movement if colliding
@@ -86,7 +86,7 @@ if (place_meeting(x, y + yspd, obj_ground)) {
 }
 
 // Set if the dummy is on the ground
-if (yspd >= 0 && place_meeting(x, y + 1, obj_ground)) {
+if (yspd >= 0 && place_meeting(x, y + 1, objGround)) {
     setOnGround(true);
 } else {
     setOnGround(false);

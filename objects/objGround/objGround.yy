@@ -1,13 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"objWall",
+  "%Name":"objGround",
   "eventList":[],
   "managed":true,
-  "name":"objWall",
+  "name":"objGround",
   "overriddenProperties":[],
   "parent":{
-    "name":"z Old Objects",
-    "path":"folders/z Old Objects.yy",
+    "name":"Objects",
+    "path":"folders/Objects.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprWall",
-    "path":"sprites/sprWall/sprWall.yy",
+    "name":"Ground_1",
+    "path":"sprites/Ground_1/Ground_1.yy",
   },
   "spriteMaskId":null,
   "visible":true,

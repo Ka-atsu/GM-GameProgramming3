@@ -1,16 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"object_orb_light",
+  "%Name":"objLightControllerRm1",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"objectPlayer","path":"objects/objectPlayer/objectPlayer.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":73,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":77,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"object_orb_light",
+  "name":"objLightControllerRm1",
   "overriddenProperties":[],
   "parent":{
-    "name":"z Old Objects",
-    "path":"folders/z Old Objects.yy",
+    "name":"Objects",
+    "path":"folders/Objects.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -30,10 +31,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_orb_light",
-    "path":"sprites/spr_orb_light/spr_orb_light.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

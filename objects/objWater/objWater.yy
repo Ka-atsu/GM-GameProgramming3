@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"water",
+  "%Name":"objWater",
   "eventList":[],
   "managed":true,
-  "name":"water",
+  "name":"objWater",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"watttteer",
-    "path":"sprites/watttteer/watttteer.yy",
+    "name":"sprWater",
+    "path":"sprites/sprWater/sprWater.yy",
   },
   "spriteMaskId":null,
   "visible":true,

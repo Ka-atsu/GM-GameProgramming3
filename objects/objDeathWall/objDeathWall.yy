@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_ground",
+  "%Name":"objDeathWall",
   "eventList":[],
   "managed":true,
-  "name":"obj_ground",
+  "name":"objDeathWall",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
