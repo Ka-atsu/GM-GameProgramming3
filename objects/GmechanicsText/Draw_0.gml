@@ -7,7 +7,7 @@ draw_text(x, y+30, "Movement");
 draw_set_font(FontBody);
 
 draw_text(x+10, y+80, "Press A to move left");
-draw_text(x+10, y+100, "Press B to move right");
+draw_text(x+10, y+100, "Press D to move right");
 draw_text(x+10, y+120, "Press Space to jump, Double tap to double jump");
 draw_text(x+10, y+140, "Press Left Click to Attack");
 

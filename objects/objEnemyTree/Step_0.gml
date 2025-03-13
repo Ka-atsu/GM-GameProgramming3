@@ -60,7 +60,7 @@ if (abs(distanceToPlayer) <= followRadius) {
 }
 
 if (enemyHit){
-	enemyHealth -= 100;
+	enemyHealth -= 50;
 	if (enemyHealth <= 0) {
 		instance_destroy(); 
 	}

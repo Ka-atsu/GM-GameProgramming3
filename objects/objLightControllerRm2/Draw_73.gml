@@ -28,6 +28,14 @@ if (global.scale == 1){
 		draw_sprite_ext(sprLight, 0, self.x, self.y-25, global.scale, global.scale, 0, c_white, 1);
 	}
 }else {
+	with(objCheckPoint) {
+			if objCheckPoint.image_index == 1 {
+				draw_sprite(sprLightSmall , 0 , self.x , self.y);	
+			}
+		}
+		with(objLightOrb) {
+		draw_sprite(sprLightSmall , 0 , self.x , self.y);	
+		}
 	with (objPlayer) {
 		draw_sprite_ext(sprLight, 0, self.x, self.y-50, global.scale, global.scale, 0, c_white, 1);
 	}
