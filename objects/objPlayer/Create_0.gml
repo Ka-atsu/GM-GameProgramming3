@@ -59,6 +59,16 @@ coyoteHangTimer = 0;
 coyoteJumpFrames = 5;
 coyoteJumpTimer = 0;
 
+//InvincibleTimer
+invincible = false;
+invincibleTimer = 0;
+
+//Moving
+isWalking = false;
+
+//SFX
+sfxWalkingChannel = -1; // -1 means no channel is currently used
+
 //Call the state
 state = PLAYERSTATE.FREE;
 //Things that had been hit by the player like a array

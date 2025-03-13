@@ -23,7 +23,7 @@ function playerState_Free(){
 		xspd = 0;
 	}
 	//Move
-	x += xspd;
+	x += xspd
 	
 	//Y Movement (Vertical Movement - Gravity, Jumping)
 	//Gravity
@@ -132,11 +132,13 @@ function playerState_Free(){
 	   // image_xscale = face; // update here insted in draw cuz of some bug
 	    termVel = 10;
 	}
-
 	
 	//Sprite Control
 	//walking
-	if abs(xspd) > 0 { sprite_index = walkSpr; };
+	if abs(xspd) > 0 { 
+		sprite_index = walkSpr; 
+		isWalking = true;
+	} else { isWalking = false; }
 	//Running
 	if abs(xspd) >= moveSpd[1] { sprite_index = runSpr; };
 	//not Moving

@@ -16,12 +16,23 @@ switch (state)
 		}
 	}	
 	
-	if place_meeting(x, y, objEnemyTree) {
-    playerHealth -= 1; // Decrease health on collision
-	    if (playerHealth <= 0) {
-	        // Trigger death or restart the room
-	        room_restart();
-		}
+	// timer so the dmg is not continous
+	if (invincible) {
+	 invincibleTimer -= 1;
+	    if (invincibleTimer <= 0) {
+	        invincible = false;
+	    }
+	}
+	
+	if (place_meeting(x, y, objEnemyTree)) {
+	    if (!invincible) {
+	        playerHealth -= 20;
+	        invincible = true;       // Make the player temporarily invincible
+	        invincibleTimer = 30;    // Set the duration (e.g., 30 frames)
+	        if (playerHealth <= 0) {
+	            room_restart();
+	        }
+	    }
 	}
 	
 	if place_meeting(x, y, objDeathWall) {
@@ -31,9 +42,21 @@ switch (state)
 	//go to next room
 	if place_meeting(x,y,objFinish)
 	{
-		audio_stop_sound(bgmRoom1)
+		audio_stop_sound(bgmRoom1);
 		room_goto_next();
-		audio_play_sound(bgmRoom2, 10, true)
+		audio_play_sound(bgmRoom2, 4, true);
 	}
 	
-	
+	// SFX for walking sound
+	if (isWalking && onGround) {
+	    // Only start the sound if it's not already playing
+	    if (sfxWalkingChannel == -1 || !audio_is_playing(sfxWalkingChannel)) {
+	        sfxWalkingChannel = audio_play_sound(sfxWalking, 20, false);
+	    }
+	} else {
+	    // Stop the walking sound if the player is not moving
+	    if (sfxWalkingChannel != -1) {
+	        audio_stop_sound(sfxWalkingChannel);
+	        sfxWalkingChannel = -1;
+	    }
+	}

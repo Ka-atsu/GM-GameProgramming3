@@ -33,9 +33,12 @@ if (abs(distanceToPlayer) <= followRadius) {
 	
 	// Check for collision with other enemies before moving
     if (place_meeting(x + dynamicNum, y, objEnemyTree)) {
-        // If collision with another enemy is detected, change direction to avoid collision
        xspd = 0;
-	   
+    }
+	
+	// idle when near player
+	 if (place_meeting(x, y, objPlayer)) {
+       xspd = 0;
     }
 
     // X collision handling

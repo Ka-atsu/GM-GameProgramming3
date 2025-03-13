@@ -11,8 +11,8 @@
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objButtonPartent","path":"objects/objButtonPartent/objButtonPartent.yy",},"propertyId":{"name":"button_text","path":"objects/objButtonPartent/objButtonPartent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Quit",},
   ],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Buttons",
+    "path":"folders/Objects/Buttons.yy",
   },
   "parentObjectId":{
     "name":"objButtonPartent",
@@ -36,8 +36,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprButton",
-    "path":"sprites/sprButton/sprButton.yy",
+    "name":"sprButtonPlay",
+    "path":"sprites/sprButtonPlay/sprButtonPlay.yy",
   },
   "spriteMaskId":null,
   "visible":true,
