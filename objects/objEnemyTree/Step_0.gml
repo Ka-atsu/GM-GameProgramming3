@@ -106,18 +106,18 @@ if (abs(xspd) > 0) { sprite_index = walkSpr; }
 // Set the collision mask
 mask_index = maskSpr;
 
-// Check if the player collides with the enemy from above
-if (place_meeting(x, y, objPlayer)) {
-    // If the player is above the enemy (you can adjust this offset for the player's sprite height)
-    if (objPlayer.y < y - 100) {
-        with (objPlayer) {
-            // Only apply jump force if the player is not already falling or jumping
-            if (yspd == 0) {  // Ensure the player isn't already in the air
-                yspd = -jspd[0];  // Apply jump force when colliding from above
-            }
-        }
-        instance_destroy();  // Destroy the enemy instance
-    } else {
-         // Restart the game if colliding from the side or below
-    }
-}
+//// Check if the player collides with the enemy from above
+//if (place_meeting(x, y, objPlayer)) {
+//    // If the player is above the enemy (you can adjust this offset for the player's sprite height)
+//    if (objPlayer.y < y - 100) {
+//        with (objPlayer) {
+//            // Only apply jump force if the player is not already falling or jumping
+//            if (yspd == 0) {  // Ensure the player isn't already in the air
+//                yspd = -jspd[0];  // Apply jump force when colliding from above
+//            }
+//        }
+//        instance_destroy();  // Destroy the enemy instance
+//    } else {
+//         // Restart the game if colliding from the side or below
+//    }
+//}

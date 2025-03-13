@@ -16,6 +16,11 @@ gpu_set_blendmode(bm_subtract);
 
 //Simple adjustments on x and y because i dont have the point on middle its on bottom middle
 if (global.scale == 1){
+		with(objCheckPoint) {
+			if objCheckPoint.image_index == 1 {
+				draw_sprite(sprLightSmall , 0 , self.x , self.y);	
+			}
+		}
 		with(objLightOrb) {
 		draw_sprite(sprLightSmall , 0 , self.x , self.y);	
 		}
