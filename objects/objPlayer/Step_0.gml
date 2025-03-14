@@ -16,15 +16,11 @@ switch (state)
 	    }
 	}
 	
-	if place_meeting(x, y, objSpike) {
-	   if (!invincible) {
-		        playerHealth -= 10;
-		        invincible = true;       // Make the player temporarily invincible
-		        invincibleTimer = 60;    // Set the duration (e.g., 30 frames)
-		        if (playerHealth <= 0) {
-		            room_restart();
-		        }
-		    }
+	if place_meeting(x, y, objSpike) || place_meeting(x, y, objSpear) {
+		playerHealth -= 100
+		if (playerHealth <= 0) {
+		    room_restart();
+		}
 	}	
 	
 	if (place_meeting(x, y, objEnemyTree)) {

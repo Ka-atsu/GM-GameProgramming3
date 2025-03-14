@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"ease_in",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"ease_in",
+  "parent":{
+    "name":"FunctionScript",
+    "path":"folders/FunctionScript.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
