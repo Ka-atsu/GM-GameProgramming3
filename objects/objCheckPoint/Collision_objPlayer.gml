@@ -6,6 +6,7 @@ if (image_index == 1 ) {
 
 // else activate it 
 image_index = 1;
+image_speed = 0;
 
 //create a file where the value will be saved
 ini_open("checkpoint.ini");
