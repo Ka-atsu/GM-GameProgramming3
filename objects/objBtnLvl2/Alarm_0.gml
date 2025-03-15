@@ -2,4 +2,5 @@
 event_inherited();
 
 audio_play_sound(bgmRoom2, 10, true);
-room_goto(Level2);
+
+fadeToRoom(Level2, 60, c_black);

@@ -19,7 +19,7 @@ switch (state)
 	if place_meeting(x, y, objSpike) || place_meeting(x, y, objSpear) {
 		playerHealth -= 100
 		if (playerHealth <= 0) {
-		    room_restart();
+			fadeToRoomRestart(60, c_black);
 		}
 	}	
 	
@@ -36,14 +36,6 @@ switch (state)
 	
 	if place_meeting(x, y, objDeathWall) {
 		room_restart();
-	}
-	
-	//go to next room
-	if place_meeting(x,y,objFinish)
-	{
-		audio_stop_sound(bgmRoom1);
-		room_goto_next();
-		audio_play_sound(bgmRoom2, 4, true);
 	}
 	
 	// SFX for walking sound

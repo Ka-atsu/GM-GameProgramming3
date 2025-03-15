@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"TransitionPlaceSequence",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"TransitionPlaceSequence",
+  "parent":{
+    "name":"FunctionScript",
+    "path":"folders/FunctionScript.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
