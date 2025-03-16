@@ -17,25 +17,22 @@ switch (state)
 	}
 	
 	if place_meeting(x, y, objSpike) || place_meeting(x, y, objSpear) {
-		playerHealth -= 100
-		if (playerHealth <= 0) {
-			fadeToRoomRestart(60, c_black);
-		}
+		fadeToRoomRestart(60, c_black);
 	}	
 	
 	if (place_meeting(x, y, objEnemyTree)) {
 	    if (!invincible) {
-	        playerHealth -= 20;
+	        playerHealth -= 12.5 // 60 - 12.5 per iteration eventually it will reach 5.5 and the rectangle sweet spot
 	        invincible = true;       // Make the player temporarily invincible
-	        invincibleTimer = 30;    // Set the duration (e.g., 30 frames)
-	        if (playerHealth <= 0) {
-	            room_restart();
+	        invincibleTimer = 60;    // Set the duration (e.g., 30 frames)
+	        if (playerHealth <= 5.5) {
+	           fadeToRoomRestart(60, c_black);
 	        }
 	    }
 	}
 	
-	if place_meeting(x, y, objDeathWall) {
-		room_restart();
+	if place_meeting(x, y, objDeathWall) || place_meeting(x, y, objWater) {
+		fadeToRoomRestart(60, c_black);
 	}
 	
 	// SFX for walking sound

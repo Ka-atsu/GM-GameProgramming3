@@ -16,7 +16,7 @@ controlsSetup();
 
 //Health 
 //Watch HeartBeast Game maker Health bar
-maxHealth = 100;
+maxHealth = 68;
 playerHealth = maxHealth; 
 
 //Sprites

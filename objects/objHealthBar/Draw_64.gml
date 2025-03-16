@@ -7,7 +7,7 @@ if !instance_exists(objPlayer) exit;
 
 //Set to red
 draw_set_color(c_red);
-//draw rectangle in the coordinates 4,4 and 123,11 you can check in the sprite
-draw_rectangle(x+12, y+5, x+131*(objPlayer.playerHealth/objPlayer.maxHealth), y+12, false);
+
+draw_rectangle(x+12, y+5, x +131 *  drawHealth/ objPlayer.maxHealth, y+12, false);
 //Set it back because it will just be red all the time
 draw_set_color(c_white);
