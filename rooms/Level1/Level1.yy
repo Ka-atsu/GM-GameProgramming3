@@ -87,6 +87,7 @@
     {"name":"inst_6DA67400","path":"rooms/Level1/Level1.yy",},
     {"name":"inst_41C917B5","path":"rooms/Level1/Level1.yy",},
     {"name":"inst_5A1B3FB1","path":"rooms/Level1/Level1.yy",},
+    {"name":"inst_5C03E885","path":"rooms/Level1/Level1.yy",},
     {"name":"inst_756BF55F","path":"rooms/Level1/Level1.yy",},
   ],
   "isDnd":false,
@@ -464,6 +465,7 @@
     {"$GMRInstanceLayer":"","%Name":"Managers","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v1","%Name":"inst_5A1B3FB1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5A1B3FB1","objectId":{"name":"objPersistentManager","path":"objects/objPersistentManager/objPersistentManager.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-64.0,"y":32.0,},
         {"$GMRInstance":"v1","%Name":"inst_756BF55F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_756BF55F","objectId":{"name":"objLightControllerRm1","path":"objects/objLightControllerRm1/objLightControllerRm1.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-64.0,"y":64.0,},
+        {"$GMRInstance":"v1","%Name":"inst_5C03E885","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5C03E885","objectId":{"name":"objEscape","path":"objects/objEscape/objEscape.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":-64.0,"y":93.0,},
       ],"layers":[],"name":"Managers","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"HpAndCheckPoint","depth":400,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v1","%Name":"inst_5EB100F7","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5EB100F7","objectId":{"name":"objHealthBar","path":"objects/objHealthBar/objHealthBar.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":30.0,"y":30.0,},

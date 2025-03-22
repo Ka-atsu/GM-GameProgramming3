@@ -6,10 +6,10 @@
     "path":"audiogroups/audiogroup_default",
   },
   "bitDepth":1,
-  "bitRate":144,
+  "bitRate":320,
   "compression":3,
   "conversionMode":0,
-  "duration":120.16326,
+  "duration":24.900045,
   "name":"bgmRoom1",
   "parent":{
     "name":"Sounds",
@@ -20,6 +20,6 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"bgmRoom1.ogg",
-  "type":0,
+  "type":1,
   "volume":1.0,
 }

@@ -7,14 +7,14 @@ function playerState_Attack_Slash() {
 	yspd = 0;
 	
 	//Start of Attack
-	if (sprite_index != sprPlayerAttack) {
-		sprite_index = sprPlayerAttack;
+	if (sprite_index != atkSpr) {
+		sprite_index = atkSpr;
 		image_index = 0;
 		ds_list_clear(hitByAttack);
 	}
 	
 	//Use attack hitbox & check for hits // cannot do it automatically
-	if(face != -1){ mask_index = sprPlayerHB; } else { mask_index = sprPlayerHB_Left;}
+	if(face != -1){ mask_index = hb; } else { mask_index = hb_left;}
 
 	var hitByAttackNow = ds_list_create();
 	// x and y is the position , object Enemy is the one who will get hit , hitByAttackNow where we will store

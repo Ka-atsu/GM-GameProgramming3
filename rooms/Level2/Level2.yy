@@ -2729,6 +2729,7 @@
     {"name":"inst_44377F36","path":"rooms/Level2/Level2.yy",},
     {"name":"inst_1C31BFCD","path":"rooms/Level2/Level2.yy",},
     {"name":"inst_2A8B3E14","path":"rooms/Level2/Level2.yy",},
+    {"name":"inst_17763A16","path":"rooms/Level2/Level2.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -6398,6 +6399,7 @@
     {"$GMRInstanceLayer":"","%Name":"GameController","depth":700,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v1","%Name":"inst_1E09212C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1E09212C","objectId":{"name":"objLightControllerRm2","path":"objects/objLightControllerRm2/objLightControllerRm2.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":2112.0,"y":-64.0,},
         {"$GMRInstance":"v1","%Name":"inst_595793DC","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_595793DC","objectId":{"name":"objPersistentManager","path":"objects/objPersistentManager/objPersistentManager.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":2176.0,"y":-64.0,},
+        {"$GMRInstance":"v1","%Name":"inst_17763A16","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_17763A16","objectId":{"name":"objEscape","path":"objects/objEscape/objEscape.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":2258.0,"y":-64.0,},
       ],"layers":[],"name":"GameController","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Checkpoints","depth":800,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v1","%Name":"inst_2CE54F55","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2CE54F55","objectId":{"name":"objCheckPoint","path":"objects/objCheckPoint/objCheckPoint.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":960.0,"y":6528.0,},

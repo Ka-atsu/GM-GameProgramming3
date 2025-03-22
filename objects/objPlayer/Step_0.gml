@@ -39,12 +39,26 @@ switch (state)
 	if (isWalking && onGround) {
 	    // Only start the sound if it's not already playing
 	    if (sfxWalkingChannel == -1 || !audio_is_playing(sfxWalkingChannel)) {
-	        sfxWalkingChannel = audio_play_sound(sfxWalking, 20, false);
+	        sfxWalkingChannel = audio_play_sound(sfxWalk, 20, false);
 	    }
 	} else {
 	    // Stop the walking sound if the player is not moving
 	    if (sfxWalkingChannel != -1) {
 	        audio_stop_sound(sfxWalkingChannel);
 	        sfxWalkingChannel = -1;
+	    }
+	}
+	
+	// SFX for walking sound
+	if (isRunning && onGround) {
+	    // Only start the sound if it's not already playing
+	    if (sfxRunningChannel == -1 || !audio_is_playing(sfxRunningChannel)) {
+	        sfxRunningChannel = audio_play_sound(sfxRun, 20, false);
+	    }
+	} else {
+	    // Stop the walking sound if the player is not moving
+	    if (sfxRunningChannel != -1) {
+	        audio_stop_sound(sfxRunningChannel);
+	        sfxRunningChannel = -1;
 	    }
 	}

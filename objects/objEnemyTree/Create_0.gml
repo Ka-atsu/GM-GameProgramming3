@@ -70,3 +70,5 @@ coyoteJumpTimer = 0;
 
 //Number Stopping so the enemy wont collide when idle
 dynamicNum = 0;
+
+sfxWalkingChannel = -1;

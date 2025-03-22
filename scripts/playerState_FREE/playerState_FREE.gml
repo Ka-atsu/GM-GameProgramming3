@@ -1,6 +1,6 @@
 function playerState_Free(){
 	//X Movement (Horizontal Movement)
-	moveDir = rightKey - leftkey;
+	moveDir = rightKey - leftKey;
 
 	//Get my face
 	if moveDir != 0 { face = moveDir};
@@ -38,6 +38,14 @@ function playerState_Free(){
 		setOnGround(false);
 	}
 	
+	// Handling landing and playing the sound effect
+	if (!onAir && onGround) {
+	    audio_play_sound(sfxLand, 20, false);  // Play landing sound
+	}
+
+	// Update wasOnGround for the next frame
+	onAir = onGround;
+	
 	//Reset/Prepare Jumping variables
 	if onGround
 	{
@@ -49,9 +57,12 @@ function playerState_Free(){
 		if jumpCount == 0 && coyoteJumpTimer <= 0 { jumpCount = 1; };
 	}
 	
+	//show_debug_message(jumpCount);
+	
 	//Initiate the Jump
 	if jumpKeyBuffered && jumpCount < jumpMax
 	{
+		audio_play_sound(sfxJump, 20, false);
 		//Reset the buffer
 		jumpKeyBuffered = false;
 		jumpKeyBufferTimer = 0;
@@ -117,7 +128,7 @@ function playerState_Free(){
 
 	if (!onGround && (touchingRightWall || touchingLeftWall)) {
 	    jumpCount = 1;
-	    termVel = 1;
+	    termVel = 5;
 		
 	    // Determine which way to face based on which wall is touched
 	    //if (touchingRightWall) {
@@ -130,17 +141,22 @@ function playerState_Free(){
 	} else { 
 	    // Reset the character direction based on face when not touching walls
 	   // image_xscale = face; // update here insted in draw cuz of some bug
-	    termVel = 10;
+	    termVel = 20;
 	}
 	
 	//Sprite Control
 	//walking
 	if abs(xspd) > 0 { 
 		sprite_index = walkSpr; 
+		isRunning = false
 		isWalking = true;
 	} else { isWalking = false; }
 	//Running
-	if abs(xspd) >= moveSpd[1] { sprite_index = runSpr; };
+	if abs(xspd) >= moveSpd[1] { 
+		sprite_index = runSpr;  
+		isWalking = false;
+		isRunning = true; 
+	} else { isRunning = false}
 	//not Moving
 	if xspd == 0 { sprite_index = idleSpr; };
 	//in the air

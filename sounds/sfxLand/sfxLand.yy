@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"sfxWalking",
+  "%Name":"sfxLand",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,8 +9,8 @@
   "bitRate":512,
   "compression":0,
   "conversionMode":0,
-  "duration":0.48,
-  "name":"sfxWalking",
+  "duration":0.185873,
+  "name":"sfxLand",
   "parent":{
     "name":"SFX",
     "path":"folders/Sounds/SFX.yy",
@@ -18,8 +18,8 @@
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
-  "sampleRate":48000,
-  "soundFile":"sfxWalking.mp3",
-  "type":1,
+  "sampleRate":44100,
+  "soundFile":"sfxLand.ogg",
+  "type":0,
   "volume":1.0,
 }

@@ -10,7 +10,7 @@ function getControls()
 {
 	// Directions Inputs
 	rightKey = keyboard_check(ord("D"));  // Use 'D' key instead of right arrow
-	leftkey = keyboard_check(ord("A"));   // Use 'A' key instead of left arrow
+	leftKey = keyboard_check(ord("A"));   // Use 'A' key instead of left arrow
 	
 	//Action Inputs
 	jumpKeyPressed = keyboard_check_pressed(vk_space);  // Keep spacebar for 

@@ -1,109 +1,115 @@
-// Define the follow radius (this is the maximum distance the player can be for the dummy to follow)
-var followRadius = 500;  // You can adjust this to any value you prefer
+// Define the follow radius and vertical follow threshold
+var followRadius = 500;  // Maximum horizontal distance for the dummy to start following the player
+var verticalFollowThreshold = 50;  // Maximum vertical distance for the dummy to consider following the player
 
-// Store the previous move direction when checking the player's position
+// Store the previous movement direction to maintain behavior under certain conditions
 var prevMoveDir = moveDir;
 
-// Calculate the horizontal distance between the dummy and the player
+// Calculate the horizontal and vertical distances between the dummy and the player
 var distanceToPlayer = objPlayer.x - x;
+var verticalDistanceToPlayer = abs(objPlayer.y - y);
 
-// Check if the player is within the follow radius
-if (abs(distanceToPlayer) <= followRadius) {
-    // Player is within radius, make the dummy move towards the player
+// Track whether the dummy was moving towards the player in the previous frame
+var wasMoving = false;
 
-    // Set movement direction based on player's position
+// Check if the player is within the horizontal and vertical follow distances
+if (abs(distanceToPlayer) <= followRadius && verticalDistanceToPlayer <= verticalFollowThreshold) {
+    // Check if the dummy was not moving previously, and start playing the walking sound if necessary
+    if (!wasMoving) {
+        if (sfxWalkingChannel == -1 || !audio_is_playing(sfxWalkingChannel)) {
+            sfxWalkingChannel = audio_play_sound(sfxEnemyTreeWalk, 20, false);
+        }
+        wasMoving = true;
+    }
+
+    // Determine the direction to move based on the player's relative horizontal position
     if (distanceToPlayer > 0) {
-        moveDir = 1;  // Move right towards the player
-		dynamicNum = 10;
+        moveDir = 1;  // Move right
     } else {
-        moveDir = -1; // Move left towards the player
-		dynamicNum = -10;
+        moveDir = -1; // Move left
     }
 
-    // Retain the movement direction when the player is directly above
-    if (objPlayer.y < y - 16) {
-        moveDir = prevMoveDir;  // Keep the previous direction
+    // Set the horizontal speed based on the direction; assumes moveSpd[0] is defined elsewhere as a speed value
+    xspd = moveDir * moveSpd[0];  
+
+    // Check for collisions with other enemies in the direction of movement before actually moving
+    if (place_meeting(x + moveDir * 10, y, objEnemyTree)) {
+        xspd = 0;  // Stop movement if collision is detected
     }
 
-    // Set the face direction based on the move direction
-    face = moveDir;
-
-    // Set the horizontal speed (xspd) based on the move direction and walking speed
-    xspd = moveDir * moveSpd[0];  // This makes the dummy move towards the player
-	
-	// Check for collision with other enemies before moving
-    if (place_meeting(x + dynamicNum, y, objEnemyTree)) {
-       xspd = 0;
-    }
-	
-	// idle when near player
-	 if (place_meeting(x, y, objPlayer)) {
-       xspd = 0;
+    // If the dummy is very close to the player, stop moving
+    if (place_meeting(x, y, objPlayer)) {
+        xspd = 0;
     }
 
-    // X collision handling
+    // Check for horizontal collisions with the environment and adjust position if needed
     var _subPixel = .5;
     if (place_meeting(x + xspd, y, objGround)) {
-        // Scoot up to the wall precisely
         var _pixelCheck = _subPixel * sign(xspd);
         while (!place_meeting(x + _pixelCheck, y, objGround)) {
             x += _pixelCheck;
         }
-        // Set xspd to zero if colliding
-        xspd = 0;
+        xspd = 0;  // Stop movement if a solid ground collision occurs
     }
-    // Move horizontally
+
+    // Apply the calculated horizontal movement
     x += xspd;
 } else {
-    // Player is outside of the follow radius, do not move
-    xspd = 0;  // Stop the dummy from moving
+    // If the player is out of the follow range, stop the dummy and its movement sound
+    xspd = 0;
+    wasMoving = false;
+    if (sfxWalkingChannel != -1) {
+        audio_stop_sound(sfxWalkingChannel);
+        sfxWalkingChannel = -1;
+    }
 }
 
+// Handle enemy being hit and reduce health
 if (enemyHit){
-	enemyHealth -= 50;
-	if (enemyHealth <= 0) {
-		instance_destroy(); 
-	}
-	xspd = 0;
-	enemyHit = false;
+    enemyHealth -= 50;
+    if (enemyHealth <= 0) {
+        audio_stop_sound(sfxWalkingChannel);  // Stop any sounds before destroying
+        instance_destroy();  // Remove the enemy instance from the game
+    }
+    xspd = 0;
+    enemyHit = false;
 }
 
-// Y Movement (Gravity)
+// Apply gravity if the dummy is not on the ground
 if (!onGround) {
-    yspd += grav;  // Apply gravity to the vertical speed
+    yspd += grav;  // Increment vertical speed by gravity
 } else {
-    // Reset vertical speed when on the ground
-    yspd = 0;
+    yspd = 0;  // Reset vertical speed if on the ground
 }
 
-// Y Collision handling
+// Check for vertical collisions and adjust vertical position to prevent passing through the ground
 var _subPixel = .5;
 if (place_meeting(x, y + yspd, objGround)) {
-    // Scoot up to the wall precisely
     var _pixelCheck = _subPixel * sign(yspd);
     while (!place_meeting(x, y + _pixelCheck, objGround)) {
         y += _pixelCheck;
     }
-    // Stop vertical movement if colliding
-    yspd = 0;
+    yspd = 0;  // Stop vertical movement upon collision
 }
 
-// Set if the dummy is on the ground
+// Update grounded state based on collision check directly beneath the dummy
 if (yspd >= 0 && place_meeting(x, y + 1, objGround)) {
     setOnGround(true);
 } else {
     setOnGround(false);
 }
 
-// Move vertically
+// Apply vertical movement
 y += yspd;
 
-// Sprite Control
-if (abs(xspd) = 0) { sprite_index = idleSpr; }
-// If moving horizontally, set the sprite to walking
-if (abs(xspd) > 0) { sprite_index = walkSpr; }
+// Update the sprite based on movement; idle if not moving, walking if moving
+if (abs(xspd) == 0) { 
+    sprite_index = idleSpr; 
+} else {
+    sprite_index = walkSpr; 
+}
 
-// Set the collision mask
+// Set the collision mask for the dummy
 mask_index = maskSpr;
 
 //// Check if the player collides with the enemy from above

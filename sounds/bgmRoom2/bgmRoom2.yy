@@ -9,7 +9,7 @@
   "bitRate":320,
   "compression":3,
   "conversionMode":0,
-  "duration":115.15308,
+  "duration":230.25003,
   "name":"bgmRoom2",
   "parent":{
     "name":"Sounds",
@@ -18,8 +18,8 @@
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
-  "sampleRate":48000,
+  "sampleRate":44100,
   "soundFile":"bgmRoom2.ogg",
-  "type":0,
+  "type":1,
   "volume":1.0,
 }

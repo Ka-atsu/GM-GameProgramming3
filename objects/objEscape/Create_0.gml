@@ -1,0 +1,1 @@
+global.escKeyPressed = false;

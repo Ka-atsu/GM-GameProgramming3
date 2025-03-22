@@ -26,29 +26,32 @@ walkSpr = sprPlayerWalk;
 runSpr = sprPlayerRun;
 jumpSpr = sprPlayerJump;
 atkSpr = sprPlayerAttack;
+hb = sprPlayerHb;
+hb_left = sprPlayerHb_Left;
 
 //Moving
 face = 1;
 moveDir = 0;
 runType = 0;
-moveSpd[0] = 7;
-moveSpd[1] = 9.5;
+moveSpd[0] = 10;
+moveSpd[1] = 12.5;
 xspd = 0;
 yspd = 0;
 
 //Jumping
-grav = .875;
-termVel = 15;
+grav = .5;
+termVel = 0; // inside the free state i am changing the termvel
 onGround = true;
+onAir = false;
 jumpMax = 2;
 jumpCount = 0;
 jumpHoldTimer = 0;
 
 //Jump values for each successive jump
-jumpHoldFrames[0] = 20;
-jspd[0] = -10;
-jumpHoldFrames[1] = 10;
-jspd[1] = -9.15;
+jumpHoldFrames[0] = 6;
+jspd[0] = -13.15
+jumpHoldFrames[1] = 3;
+jspd[1] = -12.85;
 
 //Coyote Time
 //Hang Time
@@ -65,9 +68,11 @@ invincibleTimer = 0;
 
 //Moving
 isWalking = false;
+isRunning = false;
 
 //SFX
 sfxWalkingChannel = -1; // -1 means no channel is currently used
+sfxRunningChannel = -1;
 
 //Call the state
 state = PLAYERSTATE.FREE;
