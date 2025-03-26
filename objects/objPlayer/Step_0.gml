@@ -36,7 +36,7 @@ switch (state)
 	}
 	
 	// SFX for walking sound
-	if (isWalking && onGround) {
+	if (isWalking && onGround && state == PLAYERSTATE.FREE) {
 	    // Only start the sound if it's not already playing
 	    if (sfxWalkingChannel == -1 || !audio_is_playing(sfxWalkingChannel)) {
 	        sfxWalkingChannel = audio_play_sound(sfxWalk, 20, false);
@@ -50,7 +50,8 @@ switch (state)
 	}
 	
 	// SFX for walking sound
-	if (isRunning && onGround) {
+	// state == PLAYERSTATE.FREE is just to make sure the sound will work if its in idle state
+	if (isRunning && onGround && state == PLAYERSTATE.FREE) {
 	    // Only start the sound if it's not already playing
 	    if (sfxRunningChannel == -1 || !audio_is_playing(sfxRunningChannel)) {
 	        sfxRunningChannel = audio_play_sound(sfxRun, 20, false);
