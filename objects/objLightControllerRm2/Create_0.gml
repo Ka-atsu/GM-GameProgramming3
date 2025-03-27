@@ -6,6 +6,10 @@ var cam_height = camera_get_view_height(camera);
 
 light_surface = surface_create(cam_width,cam_height);
 
-global.scale = 1; // Make scale global so it's accessible from anywhere
+global.state = 1; // Make scale global so it's accessible from anywhere
 
 //Watch simple 2D lighting tutorial - from Dragonite spam
+
+global.onePointFiveScale = 1.5; 
+global.oneScale = 1;// Starting scale value
+scalingActive = true;   // Flag to control whether scaling is active

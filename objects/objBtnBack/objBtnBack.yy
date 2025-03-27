@@ -8,15 +8,15 @@
   "managed":true,
   "name":"objBtnBack",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objButtonPartentSmall","path":"objects/objButtonPartentSmall/objButtonPartentSmall.yy",},"propertyId":{"name":"button_text","path":"objects/objButtonPartentSmall/objButtonPartentSmall.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Back",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objButtonParentSmall","path":"objects/objButtonParentSmall/objButtonParentSmall.yy",},"propertyId":{"name":"button_text","path":"objects/objButtonParentSmall/objButtonParentSmall.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Back",},
   ],
   "parent":{
     "name":"Buttons",
     "path":"folders/Objects/Buttons.yy",
   },
   "parentObjectId":{
-    "name":"objButtonPartentSmall",
-    "path":"objects/objButtonPartentSmall/objButtonPartentSmall.yy",
+    "name":"objButtonParentSmall",
+    "path":"objects/objButtonParentSmall/objButtonParentSmall.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -36,8 +36,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprButtonHow",
-    "path":"sprites/sprButtonHow/sprButtonHow.yy",
+    "name":"sprButton",
+    "path":"sprites/sprButton/sprButton.yy",
   },
   "spriteMaskId":null,
   "visible":true,

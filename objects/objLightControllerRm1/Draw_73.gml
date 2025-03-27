@@ -14,32 +14,49 @@ camera_apply(camera);
 
 gpu_set_blendmode(bm_subtract);
 
-//Simple adjustments on x and y because i dont have the point on middle its on bottom middle
-if (global.scale == 1){
-		with(objCheckPoint) {
-			if image_index == 1 {
-				draw_sprite(sprLightSmall , 0 , self.x , self.y);	
-			}
-		}
-		with(objLightOrb) {
-		draw_sprite(sprLightSmall , 0 , self.x , self.y);	
-		}
-		with (objPlayer) {
-		draw_sprite_ext(sprLight, 0, self.x, self.y-25, global.scale, global.scale, 0, c_white, 1);
-		}
-	} else {
-		with(objCheckPoint) {
-				if image_index == 1 {
-					draw_sprite(sprLightSmall , 0 , self.x , self.y);	
-				}
-			}
-			with(objLightOrb) {
-			draw_sprite(sprLightSmall , 0 , self.x , self.y);	
-			}
-		with (objPlayer) {
-			draw_sprite_ext(sprLight, 0, self.x, self.y-50, global.scale, global.scale, 0, c_white, 1);
-		}
+var targetScale = 2; // Adjust this value as necessary
+
+// Example part of your Draw event:
+if (global.state == 1) {
+    with (objCheckPoint) {
+        if (image_index == 1) {
+            draw_sprite(sprLightSmall, 0, self.x, self.y);  
+        }
+    }
+    with (objLightOrb) {
+        draw_sprite(sprLightSmall, 0, self.x, self.y);  
+    }
+    with (objPlayer) {
+        draw_sprite_ext(sprLight, 0, self.x, self.y - 25, global.state, global.state, 0, c_white, 1);
+    }
+} else if (global.state == 1.5) {
+    with (objCheckPoint) {
+        if (image_index == 1) {
+            draw_sprite(sprLightSmall, 0, self.x, self.y);  
+        }
+    }
+    with (objLightOrb) {
+        draw_sprite(sprLightSmall, 0, self.x, self.y);  
+    }
+    with (objPlayer) {
+        // Draw the sprite using the gradually updated currentScale
+        draw_sprite_ext(sprLight, 0, self.x, self.y - 50, global.oneScale, global.oneScale, 0, c_white, 1);
+    }
+} else if (global.state == 2) {
+    with (objCheckPoint) {
+        if (image_index == 1) {
+            draw_sprite(sprLightSmall, 0, self.x, self.y);  
+        }
+    }
+    with (objLightOrb) {
+        draw_sprite(sprLightSmall, 0, self.x, self.y);  
+    }
+    with (objPlayer) {
+        // Draw the sprite using the gradually updated currentScale
+        draw_sprite_ext(sprLight, 0, self.x, self.y - 25, global.onePointFiveScale, global.onePointFiveScale, 0, c_white, 1);
+    }
 }
+
 
 gpu_set_blendmode(bm_normal);
 

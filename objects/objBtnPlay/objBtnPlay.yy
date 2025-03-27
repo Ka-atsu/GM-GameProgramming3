@@ -8,15 +8,15 @@
   "managed":true,
   "name":"objBtnPlay",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objButtonPartent","path":"objects/objButtonPartent/objButtonPartent.yy",},"propertyId":{"name":"button_text","path":"objects/objButtonPartent/objButtonPartent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Play",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objButtonParent","path":"objects/objButtonParent/objButtonParent.yy",},"propertyId":{"name":"button_text","path":"objects/objButtonParent/objButtonParent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Play",},
   ],
   "parent":{
     "name":"Buttons",
     "path":"folders/Objects/Buttons.yy",
   },
   "parentObjectId":{
-    "name":"objButtonPartent",
-    "path":"objects/objButtonPartent/objButtonPartent.yy",
+    "name":"objButtonParent",
+    "path":"objects/objButtonParent/objButtonParent.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -36,8 +36,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprButtonPlay",
-    "path":"sprites/sprButtonPlay/sprButtonPlay.yy",
+    "name":"sprButton",
+    "path":"sprites/sprButton/sprButton.yy",
   },
   "spriteMaskId":null,
   "visible":true,

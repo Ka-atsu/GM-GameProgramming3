@@ -9,6 +9,48 @@ function playerState_Free(){
 	runType = runKey;
 	xspd = moveDir * moveSpd[runType];
 	
+	// Wall jump detection
+	// x + 1 wall on right , x - 1 wall on left
+	// 1 - 0 = 1   0 - 1 = -1
+	onwall = place_meeting(x + 1, y, objGround) - place_meeting(x - 1, y, objGround);
+	//show_debug_message(onwall);
+
+	// Update wasOnWall when the player is on a wall
+	// it saves the onwall before it goes to 0 it saves the old one meaning if its 1 before it become 0 again it saves 1
+	if (onwall != 0) {
+	    wasOnWall = onwall; // Store the wall direction (1 for right, -1 for left)
+	}
+	
+	// When the wall jump is initiated
+	// for now if the right or left key is pressed against the wall it shouldnt work
+	if (onwall != 0 && jumpKeyPressed && !onGround && rightKey == 0 && leftKey == 0) {
+	    yspd = -16;
+	    targetXspd = -onwall * 50;
+	    wallJumpActive = true;  // Start smoothing the x speed
+	    jumpStartX = x;        // Record the starting x position
+
+		//show_debug_message(rightKey, leftKey);
+	    //show_debug_message("Jump initiated");
+	}
+
+	// In your Step event, continuously smooth xspd while the flag is active
+	if (wallJumpActive) {
+	    xspd = lerp(xspd, targetXspd, 0.1);  // Smooth the x speed toward targetXspd
+	    x += xspd;                           // Update the x position
+    
+	    // Stop updating when the character has moved 300 units from the starting x
+		// Stop if hitting a wall || pressing keys
+	    if (abs(x - jumpStartX) >= 300 || place_meeting(x + xspd, y, objGround) || rightKey || leftKey) {
+	        wallJumpActive = false;
+	        //show_debug_message("Wall jump movement complete");
+	    }
+	} else 
+	if (onwall != 0) { 
+	    termVel = 3;
+	} else { 
+	    termVel = 20;
+	}
+	
 	//X collision
 	var _subPixel = .5;
 	if place_meeting(x + xspd, y, objGround)
@@ -120,51 +162,72 @@ function playerState_Free(){
 
 	//Move
 	y += yspd
-	
-	
-	//Wall jump
-	var touchingRightWall = place_meeting(x + 5, y, objGround);
-	var touchingLeftWall = place_meeting(x - 5, y, objGround);
 
-	if (!onGround && (touchingRightWall || touchingLeftWall)) {
-	    jumpCount = 1;
-	    termVel = 5;
-		
-	    // Determine which way to face based on which wall is touched
-	    //if (touchingRightWall) {
-	        //face = -1; // Face left if on the right wall
-	    //} else if (touchingLeftWall) {
-	       // face = 1; // Face right if on the left wall
-	    //}
-		// = false; // Reset the jump key buffer
-	   // image_xscale = face;
+
+	// Sprite Control
+	// Walking
+	if (abs(xspd) > 0) { 
+	    sprite_index = walkSpr; 
+	    isRunning = false;
+	    isWalking = true;
 	} else { 
-	    // Reset the character direction based on face when not touching walls
-	   // image_xscale = face; // update here insted in draw cuz of some bug
-	    termVel = 20;
+	    isWalking = false;
 	}
+
+	// Running
+	if (abs(xspd) >= moveSpd[1]) { 
+	    sprite_index = runSpr;  
+	    isWalking = false;
+	    isRunning = true; 
+	} else { 
+	    isRunning = false;
+	}
+
+	// Not Moving (Idle)
+	if (xspd == 0) { 
+	    sprite_index = idleSpr; 
+	}
+
+	// In the air (Jumping or Falling)
+	if (!onGround) { 
+    // Wall Jump
+    if (onwall != 0) {
+        sprite_index = sprPlayerJump2;  // Wall jump sprite
+        image_xscale = onwall; // Flip direction during wall jump (1 for right, -1 for left)
+    } 
+    // Normal Jumping (Not on a wall) and come from a wall
+    else if (onwall == 0  && wasOnWall != 0) {
+		//show_debug_message(face);
+		face = -face;
+        sprite_index = jumpSpr;  // Normal jump sprite
+        // Use wasOnWall to keep direction from the previous wall state
+        image_xscale = (wasOnWall == 1) ? -1 : 1; // Flip based on the previous wall state
+		
+		if(leftKey != 0 || rightKey !=0) {
+			//show_debug_message("Move");
+			face = -face;
+			image_xscale = face; // Flip based on the previous wall state
+		}
+    }
+	// not on a wall and also it didnt come from a wall
+	else if (onwall == 0 && wasOnWall == 0) {
+		
+		//show_debug_message(face);
+        sprite_index = jumpSpr;  // Normal jump sprite
+        image_xscale = face;
+    }
+	} else {
+		//show_debug_message(face);
+	    image_xscale = face;
+		// this is essential to reset the was on Wall
+		wasOnWall = 0;
+	}
+
+
 	
-	//Sprite Control
-	//walking
-	if abs(xspd) > 0 { 
-		sprite_index = walkSpr; 
-		isRunning = false
-		isWalking = true;
-	} else { isWalking = false; }
-	//Running
-	if abs(xspd) >= moveSpd[1] { 
-		sprite_index = runSpr;  
-		isWalking = false;
-		isRunning = true; 
-	} else { isRunning = false}
-	//not Moving
-	if xspd == 0 { sprite_index = idleSpr; };
-	//in the air
-	if !onGround { sprite_index = jumpSpr; };
-	
-	//set the collision mask
-	mask_index = maskSpr
+		//set the collision mask
+		mask_index = maskSpr
 	
 	//IF clicked change state
-	if (attackKey) state = PLAYERSTATE.ATTACK_SLASH;
+	if (attackKey && onwall == 0) state = PLAYERSTATE.ATTACK_SLASH;
 }

@@ -13,7 +13,7 @@ start_Y = y;
 
 ai = "idle";
 
-DelayAttack_time = 80;
+DelayAttack_time = 15;
 DelayAttack_timer = DelayAttack_time;
 
 ReloadTrap_time = 240;

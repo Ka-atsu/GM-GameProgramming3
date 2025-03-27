@@ -35,6 +35,7 @@ moveDir = 0;
 runType = 0;
 moveSpd[0] = 10;
 moveSpd[1] = 12.5;
+moveSpdNotArray = 10;
 xspd = 0;
 yspd = 0;
 
@@ -52,6 +53,7 @@ jumpHoldFrames[0] = 6;
 jspd[0] = -13.15
 jumpHoldFrames[1] = 3;
 jspd[1] = -12.85;
+jspdNotArray = -12;
 
 //Coyote Time
 //Hang Time
@@ -69,6 +71,10 @@ invincibleTimer = 0;
 //Moving
 isWalking = false;
 isRunning = false;
+wallJumpActive = false;
+
+//Wall
+wasOnWall = 0;
 
 //SFX
 sfxWalkingChannel = -1; // -1 means no channel is currently used
