@@ -6,8 +6,8 @@ if (scalingActive) {
             global.oneScale += 0.05;  // Gradually increase
 			show_debug_message(global.oneScale);
         } else {
-            global.oneScale = 1.5;    // Clamp to 1.5
-            
+            global.oneScale = 1.5; 
+            global.onePointFiveScale = 1.5; // Put the other to the same scale
         }
     }
     else if (global.state == 2) {
@@ -16,8 +16,8 @@ if (scalingActive) {
             global.onePointFiveScale -= 0.05;  // Gradually decrease
             show_debug_message(global.onePointFiveScale);
         } else {
-            global.onePointFiveScale = 1;    // Clamp to 1.5 (or whatever target you prefer)
-            scalingActive = false;             // Stop further scaling
+            global.onePointFiveScale = 1;    
+            global.oneScale = 1;  // Put the other to the same scale
         }
     }
 }

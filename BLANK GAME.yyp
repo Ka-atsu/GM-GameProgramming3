@@ -36,9 +36,7 @@
     {"$GMFolder":"","%Name":"z Old Objects","folderPath":"folders/z Old Objects.yy","name":"z Old Objects","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"z Old Sprites","folderPath":"folders/z Old Sprites.yy","name":"z Old Sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
-  "IncludedFiles":[
-    {"$GMIncludedFile":"","%Name":"readme.html","CopyToMask":-1,"filePath":"datafiles/Trajan Pro Regular","name":"readme.html","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
-  ],
+  "IncludedFiles":[],
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
