@@ -27,7 +27,21 @@ function playerState_Free(){
 	
 	if (onwall != 0 ) {
 		xspd = 0;
-			if (jumpKeyPressed && !onGround && rightKey == 0 && leftKey ==0) {
+		if (jumpKeyPressed && !onGround && leftKey == 1 && onwall > 0) {
+		    yspd = -16;
+		    targetXspd = -onwall * 50;
+		    wallJumpActive = true;  // Start smoothing the x speed
+		    jumpStartX = x;        // Record the starting x position
+			//show_debug_message(rightKey, leftKey);
+		    //show_debug_message("Jump initiated");
+		} else if (jumpKeyPressed && !onGround && rightKey == 1 && onwall < 0) {
+		    yspd = -16;
+		    targetXspd = -onwall * 50;
+		    wallJumpActive = true;  // Start smoothing the x speed
+		    jumpStartX = x;        // Record the starting x position
+			//show_debug_message(rightKey, leftKey);
+		    //show_debug_message("Jump initiated");
+		} else if (jumpKeyPressed && !onGround && rightKey == 0 && leftKey == 0) {
 		    yspd = -16;
 		    targetXspd = -onwall * 50;
 		    wallJumpActive = true;  // Start smoothing the x speed
@@ -37,7 +51,6 @@ function playerState_Free(){
 		    //show_debug_message("Jump initiated");
 		}
 	}
-	
 
 	// In your Step event, continuously smooth xspd while the flag is active
 	if (wallJumpActive) {
@@ -51,8 +64,12 @@ function playerState_Free(){
 	        //show_debug_message("Wall jump movement complete");
 	    }
 	} else 
-	if (onwall != 0) { 
-	    termVel = 3;
+	if (leftKey == 1 && onwall > 0) { 
+	    termVel = 2;
+	} else if (rightKey == 1 && onwall < 0) {
+		termVel = 2;
+	} else if (onwall != 0 ) { 
+	    termVel = 6;
 	} else { 
 	    termVel = 20;
 	}
@@ -237,5 +254,5 @@ function playerState_Free(){
 	//	instance_create_layer(x - face * 100, y - 100, "Player", objAttack);
 	//	show_debug_message("sda");
 	//}
-	//if (attackKey && onwall == 0) state = PLAYERSTATE.ATTACK_SLASH;
+	if (attackKey && onwall == 0) state = PLAYERSTATE.ATTACK_SLASH;
 }

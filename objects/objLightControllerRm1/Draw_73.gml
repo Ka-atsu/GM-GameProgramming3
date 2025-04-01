@@ -9,7 +9,7 @@ if (!surface_exists(self.light_surface)) {
 }
 
 surface_set_target(self.light_surface);
-draw_clear_alpha(c_black, 0.8)
+draw_clear_alpha(c_black, 0.5)
 camera_apply(camera);
 
 gpu_set_blendmode(bm_subtract);
