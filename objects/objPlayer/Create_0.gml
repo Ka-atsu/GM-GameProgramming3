@@ -76,6 +76,7 @@ wallJumpActive = false;
 //Wall
 wasOnWall = 0;
 
+
 //SFX
 sfxWalkingChannel = -1; // -1 means no channel is currently used
 sfxRunningChannel = -1;
