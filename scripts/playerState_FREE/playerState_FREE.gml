@@ -29,23 +29,26 @@ function playerState_Free(){
 		xspd = 0;
 		if (jumpKeyPressed && !onGround && leftKey == 1 && onwall > 0) {
 		    yspd = -16;
-		    targetXspd = -onwall * 50;
+		    targetXspd = -onwall * 30;
 		    wallJumpActive = true;  // Start smoothing the x speed
 		    jumpStartX = x;        // Record the starting x position
+			audio_play_sound(sfxWallJump, 20, false);
 			//show_debug_message(rightKey, leftKey);
 		    //show_debug_message("Jump initiated");
 		} else if (jumpKeyPressed && !onGround && rightKey == 1 && onwall < 0) {
 		    yspd = -16;
-		    targetXspd = -onwall * 50;
+		    targetXspd = -onwall * 30;
 		    wallJumpActive = true;  // Start smoothing the x speed
 		    jumpStartX = x;        // Record the starting x position
+			audio_play_sound(sfxWallJump, 20, false);
 			//show_debug_message(rightKey, leftKey);
 		    //show_debug_message("Jump initiated");
 		} else if (jumpKeyPressed && !onGround && rightKey == 0 && leftKey == 0) {
-		    yspd = -16;
-		    targetXspd = -onwall * 50;
+		    yspd = -20;
+		    targetXspd = -onwall * 30;
 		    wallJumpActive = true;  // Start smoothing the x speed
 		    jumpStartX = x;        // Record the starting x position
+			audio_play_sound(sfxWallJump, 20, false);
         
 			//show_debug_message(rightKey, leftKey);
 		    //show_debug_message("Jump initiated");
@@ -54,12 +57,12 @@ function playerState_Free(){
 
 	// In your Step event, continuously smooth xspd while the flag is active
 	if (wallJumpActive) {
-	    xspd = lerp(xspd, targetXspd, 0.1);  // Smooth the x speed toward targetXspd
+		show_debug_message(xspd);
+	    xspd = lerp(xspd, targetXspd, 0.2);  // Smooth the x speed toward targetXspd
 	    x += xspd;                           // Update the x position
-    
 	    // Stop updating when the character has moved 300 units from the starting x
 		// Stop if hitting a wall || pressing keys
-	    if (abs(x - jumpStartX) >= 300 || place_meeting(x + xspd, y, objGround) || rightKey || leftKey) {
+	    if (abs(x - jumpStartX) >= 400 || place_meeting(x + xspd, y, objGround) || rightKey || leftKey) {
 	        wallJumpActive = false;
 	        //show_debug_message("Wall jump movement complete");
 	    }
@@ -74,8 +77,11 @@ function playerState_Free(){
 	    termVel = 20;
 	}
 	
+	
+	
+	
 	//X collision
-	var _subPixel = .5;
+	var _subPixel = .1;
 	if place_meeting(x + xspd, y, objGround)
 	{
 		//Scoot up to wall precisely
@@ -185,7 +191,24 @@ function playerState_Free(){
 
 	//Move
 	y += yspd
-
+	
+	
+	if (dashTimer > 0) {
+		dashTimer = max(dashTimer - 1, 0);
+	}
+	
+	// State Control
+	// Dashing
+	if (dashKey && dashTimer == 0 && !onwall && (leftKey || rightKey)) {
+		targetXspd = moveDir * 30;
+		dashActive = true;
+		dashStart = x;
+		dashTimer = 90;
+		audio_play_sound(sfxDash, 20, false);
+		state = PLAYERSTATE.DASH;
+	}
+	// Attacking
+	if (attackKey && onwall == 0) state = PLAYERSTATE.ATTACK_SLASH;
 
 	// Sprite Control
 	// Walking
@@ -205,6 +228,11 @@ function playerState_Free(){
 	} else { 
 	    isRunning = false;
 	}
+	
+	// Dashing
+	if (dashActive) {
+		sprite_index = sprPlayerJump;
+	}
 
 	// Not Moving (Idle)
 	if (xspd == 0) { 
@@ -212,7 +240,7 @@ function playerState_Free(){
 	}
 
 	// In the air (Jumping or Falling)
-	if (!onGround) { 
+	if (!onGround && !dashActive) { 
 	    // Wall Jump
 	    if (onwall != 0) {
 	        sprite_index = sprPlayerJump2;  // Wall jump sprite
@@ -246,13 +274,6 @@ function playerState_Free(){
 		wasOnWall = 0;
 	}
 	
-		//set the collision mask
-		mask_index = maskSpr
-	
-	//IF clicked change state
-	//if (attackKey) {
-	//	instance_create_layer(x - face * 100, y - 100, "Player", objAttack);
-	//	show_debug_message("sda");
-	//}
-	if (attackKey && onwall == 0) state = PLAYERSTATE.ATTACK_SLASH;
+	//set the collision mask
+	mask_index = maskSpr;
 }

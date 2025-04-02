@@ -40,7 +40,7 @@ if (global.state == 1) {
     }
     with (objPlayer) {
         // Draw the sprite using the gradually updated currentScale
-        draw_sprite_ext(sprLight, 0, self.x, self.y - 50, global.oneScale, global.oneScale, 0, c_white, 1);
+        draw_sprite_ext(sprLight, 0, self.x, self.y, global.oneScale, global.oneScale, 0, c_white, 1);
     }
 } else if (global.state == 2) {
     with (objCheckPoint) {

@@ -72,10 +72,14 @@ invincibleTimer = 0;
 isWalking = false;
 isRunning = false;
 wallJumpActive = false;
+dashActive = false;
 
 //Wall
 wasOnWall = 0;
 
+//Dash
+dashSpd = 30;
+dashTimer = 0;
 
 //SFX
 sfxWalkingChannel = -1; // -1 means no channel is currently used
@@ -90,6 +94,7 @@ hitByAttack = ds_list_create();
 enum PLAYERSTATE
 {
 	FREE,
+	DASH,
 	ATTACK_SLASH,
 	ATTACK_COMBO
 }

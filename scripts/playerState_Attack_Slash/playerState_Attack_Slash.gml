@@ -39,11 +39,11 @@ function playerState_Attack_Slash() {
 		}
 	}
 	ds_list_destroy(hitByAttackNow);
-	mask_index = experimentalIdle;
+	mask_index = idleSpr;
 	
 	if (animation_end())
 	{
-		sprite_index = experimentalIdle;
+		sprite_index = idleSpr;
 		state = PLAYERSTATE.FREE;
 	}
 }

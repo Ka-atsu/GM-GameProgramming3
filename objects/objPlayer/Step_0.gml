@@ -4,6 +4,7 @@ getControls();
 switch (state) 
 {
 	case PLAYERSTATE.FREE: playerState_Free(); break;
+	case PLAYERSTATE.DASH: playerState_Dash(); break;
 	case PLAYERSTATE.ATTACK_SLASH: playerState_Attack_Slash(); break;
 	case PLAYERSTATE.ATTACK_COMBO: playerState_Attack_Combo(); break;
 }

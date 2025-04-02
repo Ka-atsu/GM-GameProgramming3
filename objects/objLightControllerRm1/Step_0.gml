@@ -3,12 +3,12 @@
 if (scalingActive) {
     if (global.state == 1.5) {
         // Handle scaling for global.scale == 1.5 using global.oneScale
-        if (global.oneScale < 1.5) {
+        if (global.oneScale < 2.2) {
             global.oneScale += 0.05;  // Gradually increase
 			//show_debug_message(global.oneScale);
         } else {
-            global.oneScale = 1.5;    // Clamp to 1.5
-			global.onePointFiveScale = 1.5;
+            global.oneScale = 2.2;    // Clamp to 1.5
+			global.onePointFiveScale = 2.2;
         }
     }
     else if (global.state == 2) {
