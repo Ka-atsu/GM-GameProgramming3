@@ -7,7 +7,7 @@ function playerState_Dash(){
 		
 		  
 		with(instance_create_depth(x, y, depth + 1, objDashEffect)) {
-			sprite_index = sprDash;
+			sprite_index = other.dashEffectSpr;
 			image_xscale = other.face;
 			image_alpha = c_fuchsia;
 			image_alpha = 0.75;

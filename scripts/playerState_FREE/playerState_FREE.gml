@@ -231,7 +231,7 @@ function playerState_Free(){
 	
 	// Dashing
 	if (dashActive) {
-		sprite_index = sprPlayerJump;
+		sprite_index = dashSpr;
 	}
 
 	// Not Moving (Idle)
@@ -243,7 +243,7 @@ function playerState_Free(){
 	if (!onGround && !dashActive) { 
 	    // Wall Jump
 	    if (onwall != 0) {
-	        sprite_index = sprPlayerJump2;  // Wall jump sprite
+	        sprite_index = jumpSpr2;  // Wall jump sprite
 	        image_xscale = onwall; // Flip direction during wall jump (1 for right, -1 for left)
 	    } 
 	    // Normal Jumping (Not on a wall) and come from a wall

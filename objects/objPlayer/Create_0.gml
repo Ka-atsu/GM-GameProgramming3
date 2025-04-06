@@ -25,9 +25,12 @@ idleSpr = sprPlayerIdle;
 walkSpr = sprPlayerWalk;
 runSpr = sprPlayerRun;
 jumpSpr = sprPlayerJump;
+jumpSpr2 = sprPlayerJump2;
 atkSpr = sprPlayerAttack;
 hb = sprPlayerHb;
 hb_left = sprPlayerHb_Left;
+dashEffectSpr = sprDash;
+dashSpr = sprPlayerDash;
 
 //Moving
 face = 1;
