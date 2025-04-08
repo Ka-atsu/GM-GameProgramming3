@@ -24,9 +24,11 @@ function playerState_Attack_Slash() {
 	var hitByAttackNow = ds_list_create();
 	// x and y is the position , object Enemy is the one who will get hit , hitByAttackNow where we will store
 	var hits = instance_place_list(x , y , objEnemyTree, hitByAttackNow, false);
+	var hits2 = instance_place_list(x , y , objEnemySkull, hitByAttackNow, false);
 	// if we hit something can be many
-	if(hits > 0) {
-		for (var i = 0; i < hits; i++) {
+	var totalHits = ds_list_size(hitByAttackNow);
+	if(totalHits > 0) {
+		for (var i = 0; i < totalHits; i++) {
 			//if this instance has not yet been hit by this attack 
 			var hitID = hitByAttackNow [| i]; // same As ds_list_find_value(hitByAttackNow, i);
 			if (ds_list_find_index(hitByAttack, hitID) == -1) {

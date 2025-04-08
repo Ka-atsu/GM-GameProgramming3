@@ -44,7 +44,7 @@ function playerState_Free(){
 			//show_debug_message(rightKey, leftKey);
 		    //show_debug_message("Jump initiated");
 		} else if (jumpKeyPressed && !onGround && rightKey == 0 && leftKey == 0) {
-		    yspd = -20;
+		    yspd = -16;
 		    targetXspd = -onwall * 30;
 		    wallJumpActive = true;  // Start smoothing the x speed
 		    jumpStartX = x;        // Record the starting x position
@@ -57,11 +57,12 @@ function playerState_Free(){
 
 	// In your Step event, continuously smooth xspd while the flag is active
 	if (wallJumpActive) {
-		show_debug_message(xspd);
+		
 	    xspd = lerp(xspd, targetXspd, 0.2);  // Smooth the x speed toward targetXspd
 	    x += xspd;                           // Update the x position
 	    // Stop updating when the character has moved 300 units from the starting x
 		// Stop if hitting a wall || pressing keys
+		
 	    if (abs(x - jumpStartX) >= 400 || place_meeting(x + xspd, y, objGround) || rightKey || leftKey) {
 	        wallJumpActive = false;
 	        //show_debug_message("Wall jump movement complete");

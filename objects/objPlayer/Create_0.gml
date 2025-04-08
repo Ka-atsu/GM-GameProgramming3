@@ -11,6 +11,11 @@ function setOnGround(_val = true)
 	}
 }
 
+//Exit if theres no player
+if !instance_exists(objPlayerFollower) {
+	instance_create_layer(x, y, "Managers", objPlayerFollower);
+}
+
 //control setup
 controlsSetup();
 

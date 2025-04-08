@@ -1,6 +1,8 @@
 //Get inputs
 getControls();
 
+
+
 switch (state) 
 {
 	case PLAYERSTATE.FREE: playerState_Free(); break;
@@ -21,7 +23,7 @@ switch (state)
 		fadeToRoomRestart(60, c_black);
 	}	
 	
-	if (place_meeting(x, y, objEnemyTree)) {
+	if (place_meeting(x, y, objEnemyTree) || place_meeting(x, y, objEnemySkull)) {
 	    if (!invincible) {
 	        playerHealth -= 12.5 // 60 - 12.5 per iteration eventually it will reach 5.5 and the rectangle sweet spot
 	        invincible = true;       // Make the player temporarily invincible
