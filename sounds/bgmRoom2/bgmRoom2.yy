@@ -9,7 +9,7 @@
   "bitRate":320,
   "compression":3,
   "conversionMode":0,
-  "duration":230.25003,
+  "duration":230.25002,
   "name":"bgmRoom2",
   "parent":{
     "name":"Sounds",

@@ -140,7 +140,7 @@
   "resourceType":"GMSprite",
   "resourceVersion":"2.0",
   "sequence":{
-    "$GMSequence":"",
+    "$GMSequence":"v1",
     "%Name":"sEnemy2Idle",
     "autoRecord":true,
     "backdropHeight":768,
@@ -171,6 +171,8 @@
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",
+    "seqHeight":250.0,
+    "seqWidth":250.0,
     "showBackdrop":true,
     "showBackdropImage":false,
     "timeUnits":1,

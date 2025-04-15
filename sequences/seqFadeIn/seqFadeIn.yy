@@ -1,5 +1,5 @@
 {
-  "$GMSequence":"",
+  "$GMSequence":"v1",
   "%Name":"seqFadeIn",
   "autoRecord":true,
   "backdropHeight":1080,
@@ -40,6 +40,8 @@
   "playbackSpeedType":0,
   "resourceType":"GMSequence",
   "resourceVersion":"2.0",
+  "seqHeight":1128.0,
+  "seqWidth":1960.0,
   "showBackdrop":true,
   "showBackdropImage":false,
   "spriteId":null,

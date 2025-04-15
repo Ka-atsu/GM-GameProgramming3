@@ -16,6 +16,8 @@ function playerState_Dash(){
 		 show_debug_message(abs(x - dashStart));
 		 if (abs(x - dashStart) >= 300 || place_meeting(x + xspd, y, objGround)) {
 	        dashActive = false;
+			yspd = 0;
+			y += 0;
 			state = PLAYERSTATE.FREE;
 	    }
 	}

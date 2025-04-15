@@ -9,7 +9,7 @@
   "bitRate":512,
   "compression":0,
   "conversionMode":0,
-  "duration":2.033333,
+  "duration":2.0333333,
   "name":"sfxRun",
   "parent":{
     "name":"SFX",

@@ -9,7 +9,7 @@
   "bitRate":512,
   "compression":0,
   "conversionMode":0,
-  "duration":2.040023,
+  "duration":2.0400226,
   "name":"sfxWalk",
   "parent":{
     "name":"SFX",

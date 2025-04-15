@@ -41,9 +41,8 @@ if (abs(distanceToPlayer) <= followRadius && verticalDistanceToPlayer <= vertica
     if (place_meeting(x, y, objPlayer)) {
         xspd = 0;
     }
-
-    // Check for horizontal collisions with the environment and adjust position if needed
-    var _subPixel = .5;
+	
+	var _subPixel = .5;
     if (place_meeting(x + xspd, y, objGround)) {
         var _pixelCheck = _subPixel * sign(xspd);
         while (!place_meeting(x + _pixelCheck, y, objGround)) {
@@ -111,19 +110,3 @@ if (abs(xspd) == 0) {
 
 // Set the collision mask for the dummy
 mask_index = maskSpr;
-
-//// Check if the player collides with the enemy from above
-//if (place_meeting(x, y, objPlayer)) {
-//    // If the player is above the enemy (you can adjust this offset for the player's sprite height)
-//    if (objPlayer.y < y - 100) {
-//        with (objPlayer) {
-//            // Only apply jump force if the player is not already falling or jumping
-//            if (yspd == 0) {  // Ensure the player isn't already in the air
-//                yspd = -jspd[0];  // Apply jump force when colliding from above
-//            }
-//        }
-//        instance_destroy();  // Destroy the enemy instance
-//    } else {
-//         // Restart the game if colliding from the side or below
-//    }
-//}

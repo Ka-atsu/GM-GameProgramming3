@@ -9,7 +9,7 @@
   "bitRate":512,
   "compression":0,
   "conversionMode":0,
-  "duration":0.268481,
+  "duration":0.26848072,
   "name":"sfxDash",
   "parent":{
     "name":"SFX",

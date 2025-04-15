@@ -9,7 +9,7 @@
   "bitRate":512,
   "compression":0,
   "conversionMode":0,
-  "duration":0.142063,
+  "duration":0.1420635,
   "name":"sfxWallJump",
   "parent":{
     "name":"SFX",

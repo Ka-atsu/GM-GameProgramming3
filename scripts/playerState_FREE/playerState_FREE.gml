@@ -83,11 +83,11 @@ function playerState_Free(){
 	
 	//X collision
 	var _subPixel = .1;
-	if place_meeting(x + xspd, y, objGround)
+	if place_meeting(x + xspd, y, objGround) || place_meeting(x + xspd, y, objGroundNoFriction)
 	{
 		//Scoot up to wall precisely
 		var _pixelCheck = _subPixel * sign(xspd);
-		while !place_meeting(x + _pixelCheck, y, objGround)
+		while (!place_meeting(x + _pixelCheck, y, objGround) && !place_meeting(x + _pixelCheck, y, objGroundNoFriction))
 		{
 			x += _pixelCheck;
 		}
@@ -168,11 +168,12 @@ function playerState_Free(){
 	
 	//Collision
 	_subPixel = .5;
-	if place_meeting( x, y + yspd, objGround)
+	if place_meeting( x, y + yspd, objGround) || place_meeting(x, y + yspd, objGroundNoFriction)
 	{
 		//Scoot up to the wall precisely
 		var _pixelCheck = _subPixel * sign(yspd);
-		while !place_meeting( x, y + _pixelCheck, objGround) { y += _pixelCheck };
+		while !place_meeting( x, y + _pixelCheck, objGround) && !place_meeting( x, y + _pixelCheck, objGroundNoFriction)
+		{ y += _pixelCheck }
 			
 		//Bonk code
 		if yspd < 0
@@ -185,7 +186,7 @@ function playerState_Free(){
 	}
 	
 	//Set if I'm on the ground
-	if yspd >= 0 && place_meeting( x, y+1, objGround)
+	if yspd >= 0 && (place_meeting( x, y+1, objGround) || place_meeting( x, y+1, objGroundNoFriction))
 	{
 		setOnGround(true);
 	}
@@ -200,7 +201,7 @@ function playerState_Free(){
 	
 	// State Control
 	// Dashing
-	if (dashKey && dashTimer == 0 && !onwall && (leftKey || rightKey)) {
+	if (dashKey && dashTimer == 0 && onwall == 0 && (leftKey || rightKey)) {
 		targetXspd = moveDir * 30;
 		dashActive = true;
 		dashStart = x;

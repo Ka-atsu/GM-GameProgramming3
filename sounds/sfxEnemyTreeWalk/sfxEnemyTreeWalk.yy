@@ -9,7 +9,7 @@
   "bitRate":512,
   "compression":0,
   "conversionMode":0,
-  "duration":3.384422,
+  "duration":3.3844218,
   "name":"sfxEnemyTreeWalk",
   "parent":{
     "name":"SFX",
