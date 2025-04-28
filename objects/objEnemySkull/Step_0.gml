@@ -17,7 +17,7 @@ if (abs(distanceToPlayer) <= followRadius && verticalDistanceToPlayer <= vertica
     // Check if the dummy was not moving previously, and start playing the walking sound if necessary
     if (!wasMoving) {
         if (sfxWalkingChannel == -1 || !audio_is_playing(sfxWalkingChannel)) {
-            sfxWalkingChannel = audio_play_sound(sfxEnemyTreeWalk, 20, false);
+            sfxWalkingChannel = audio_play_sound(sfxEnemyGhostWalk, 20, false);
         }
         wasMoving = true;
     }

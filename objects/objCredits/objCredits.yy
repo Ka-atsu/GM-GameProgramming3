@@ -1,15 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"dashText",
+  "%Name":"objCredits",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"dashText",
+  "name":"objCredits",
   "overriddenProperties":[],
   "parent":{
-    "name":"Text",
-    "path":"folders/Text.yy",
+    "name":"TextBox",
+    "path":"folders/Objects/TextBox.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -29,7 +29,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"sprTxtboxLarger",
+    "path":"sprites/sprTxtboxLarger/sprTxtboxLarger.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }
