@@ -14,7 +14,7 @@ function playerState_Dash(){
 		}
 		 
 		 show_debug_message(abs(x - dashStart));
-		 if (abs(x - dashStart) >= 300 || place_meeting(x + xspd, y, objGround)) {
+		 if (abs(x - dashStart) >= 300 || place_meeting(x + xspd, y, objGround) || place_meeting(x + xspd, y, objGroundNoFriction)) {
 	        dashActive = false;
 			yspd = 0;
 			y += 0;
