@@ -7,3 +7,5 @@ if (pause == true) {
         room_goto(MainMenu);
     }
 }
+
+

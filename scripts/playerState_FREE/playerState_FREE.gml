@@ -251,16 +251,18 @@ function playerState_Free(){
 	    // Normal Jumping (Not on a wall) and come from a wall
 	    else if (onwall == 0  && wasOnWall != 0) {
 			//show_debug_message(face);
-			face = -face;
+			//face = -face;
 	        sprite_index = jumpSpr;  // Normal jump sprite
 	        // Use wasOnWall to keep direction from the previous wall state
 	        image_xscale = (wasOnWall == 1) ? -1 : 1; // Flip based on the previous wall state
+			
 		
 			if(leftKey != 0 || rightKey !=0) {
-				//show_debug_message(face);
-				face = -face;
-				image_xscale = face; // Flip based on the previous wall state
-			}
+				
+				//face = -face;
+				image_xscale = face; 
+			} 
+			show_debug_message(face);
 	    }
 		// not on a wall and also it didnt come from a wall
 		else if (onwall == 0 && wasOnWall == 0) {
