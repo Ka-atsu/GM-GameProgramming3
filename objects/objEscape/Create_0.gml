@@ -1,1 +1,0 @@
-global.escKeyPressed = false;

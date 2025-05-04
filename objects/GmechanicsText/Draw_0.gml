@@ -1,10 +1,11 @@
 draw_set_font(FontHeader);
 
-draw_text(x, y+30, "Movement");
+draw_text(x, y+30, "Controls");
 
 draw_set_font(FontBody);
 
 draw_text(x+10, y+80, "Press A to move left");
+draw_text(x+350, y+80, "Press ESC to pause");
 draw_text(x+10, y+100, "Press D to move right");
 draw_text(x+10, y+120, "Hold S to Run");
 draw_text(x+10, y+140, "Press Space to jump, Double tap to double jump");
