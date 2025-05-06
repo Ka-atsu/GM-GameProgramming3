@@ -10,7 +10,7 @@ switch (state)
 	case PLAYERSTATE.ATTACK_SLASH: playerState_Attack_Slash(); break;
 	case PLAYERSTATE.ATTACK_COMBO: playerState_Attack_Combo(); break;
 }
-	
+
 	// timer so the dmg is not continous
 	if (invincible) {
 	 invincibleTimer -= 1;
@@ -21,6 +21,10 @@ switch (state)
 	
 	if place_meeting(x, y, objSpike) || place_meeting(x, y, objSpear) {
 		fadeToRoomRestart(60, c_black);
+		if !death {
+			audio_play_sound(sfxDeath, 20, false);
+			death = true;
+		}
 	}	
 	
 	if (place_meeting(x, y, objEnemyTree) || place_meeting(x, y, objEnemySkull)) {
@@ -30,12 +34,20 @@ switch (state)
 	        invincibleTimer = 60;    // Set the duration (e.g., 30 frames)
 	        if (playerHealth <= 5.5) {
 	           fadeToRoomRestart(60, c_black);
+			   if !death {
+					audio_play_sound(sfxDeath, 20, false);
+					death = true;
+				}
 	        }
 	    }
 	}
 	
 	if place_meeting(x, y, objDeathWall) || place_meeting(x, y, objWater) {
 		fadeToRoomRestart(60, c_black);
+		if !death {
+			audio_play_sound(sfxDeath, 20, false);
+			death = true;
+		}
 	}
 	
 	// SFX for walking sound

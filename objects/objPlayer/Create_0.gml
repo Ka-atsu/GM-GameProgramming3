@@ -106,3 +106,7 @@ enum PLAYERSTATE
 	ATTACK_SLASH,
 	ATTACK_COMBO
 }
+
+
+//Death
+death = false;

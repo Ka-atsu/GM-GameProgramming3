@@ -11,6 +11,7 @@ function playerState_Attack_Slash() {
 		sprite_index = atkSpr;
 		image_index = 0;
 		ds_list_clear(hitByAttack);
+		audio_play_sound(sfxAttack, 20, false);
 	}
 	
 	//Use attack hitbox & check for hits // cannot do it automatically
