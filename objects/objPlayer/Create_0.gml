@@ -55,6 +55,8 @@ onAir = false;
 jumpMax = 2;
 jumpCount = 0;
 jumpHoldTimer = 0;
+lastDirection = 0;
+temp = 0;
 
 //Jump values for each successive jump
 jumpHoldFrames[0] = 6;

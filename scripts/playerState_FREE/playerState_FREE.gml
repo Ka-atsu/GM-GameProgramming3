@@ -242,42 +242,56 @@ function playerState_Free(){
 	}
 
 	// In the air (Jumping or Falling)
-	if (!onGround && !dashActive) { 
+	if (!onGround && !dashActive) {
 	    // Wall Jump
 	    if (onwall != 0) {
 	        sprite_index = jumpSpr2;  // Wall jump sprite
-	        image_xscale = onwall; // Flip direction during wall jump (1 for right, -1 for left)
+	        image_xscale = onwall;    // Flip direction during wall jump (1 for right, -1 for left)
+			lastDirection = 0;
 	    } 
-	    // Normal Jumping (Not on a wall) and come from a wall
-	    else if (onwall == 0  && wasOnWall != 0) {
-			//show_debug_message(face);
-			//face = -face;
+	    // Normal Jumping (Not on a wall) and coming from a wall
+	    else if (onwall == 0 && wasOnWall != 0) {
 	        sprite_index = jumpSpr;  // Normal jump sprite
 	        // Use wasOnWall to keep direction from the previous wall state
 	        image_xscale = (wasOnWall == 1) ? -1 : 1; // Flip based on the previous wall state
-			
+	        // Update direction based on key press
+	        if (leftKey != 0 && wasOnWall != 0) {
+	            image_xscale = -1; // Face left
+				lastDirection = image_xscale;
+	        } else if (rightKey != 0 && wasOnWall != 0) {
+	            image_xscale = 1;  // Face right
+				lastDirection = image_xscale;
+	        } 
 		
-			if(leftKey != 0 || rightKey !=0) {
-				
-				//face = -face;
-				image_xscale = face; 
-			} 
-			show_debug_message(face);
+			// Apply stored direction if no key is pressed
+		    if (leftKey == 0 && rightKey == 0 && lastDirection != 0) {
+		        image_xscale = lastDirection;
+		    }
+	
 	    }
-		// not on a wall and also it didnt come from a wall
-		else if (onwall == 0 && wasOnWall == 0) {
-		
-			//show_debug_message(face);
+	    // Not on a wall and didn't come from a wall
+	    else if (onwall == 0 && wasOnWall == 0) {
 	        sprite_index = jumpSpr;  // Normal jump sprite
-	        image_xscale = face;
+	        // Maintain current direction
+	        if (leftKey != 0) {
+	            image_xscale = -1; // Face left
+	        } else if (rightKey != 0) {
+	            image_xscale = 1;  // Face right
+	        }
 	    }
 	} else {
-		//show_debug_message(face);
-	    image_xscale = face;
-		// this is essential to reset the was on Wall
-		wasOnWall = 0;
+	    // On the ground
+	    if (leftKey != 0) {
+	        image_xscale = -1; // Face left
+	    } else if (rightKey != 0) {
+	        image_xscale = 1;  // Face right
+	    }
+	    // Reset wasOnWall when grounded
+	    wasOnWall = 0;
+		lastDirection = 0;
 	}
+
 	
-	//set the collision mask
-	mask_index = maskSpr;
-}
+		//set the collision mask
+		mask_index = maskSpr;
+	}
