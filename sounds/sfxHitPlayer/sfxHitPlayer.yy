@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"sfxHitPlayer",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":512,
+  "compression":0,
+  "conversionMode":0,
+  "duration":1.6557143,
+  "name":"sfxHitPlayer",
+  "parent":{
+    "name":"SFX",
+    "path":"folders/Sounds/SFX.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sfxHitPlayer.ogg",
+  "type":0,
+  "volume":1.0,
+}

@@ -32,6 +32,7 @@ switch (state)
 	        playerHealth -= 12.5 // 60 - 12.5 per iteration eventually it will reach 5.5 and the rectangle sweet spot
 	        invincible = true;       // Make the player temporarily invincible
 	        invincibleTimer = 60;    // Set the duration (e.g., 30 frames)
+			audio_play_sound(sfxHitPlayer, 20, false);
 	        if (playerHealth <= 5.5) {
 	           fadeToRoomRestart(60, c_black);
 			   if !death {

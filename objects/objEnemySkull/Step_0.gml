@@ -71,6 +71,7 @@ if (enemyHit){
     enemyHealth -= 50;
     if (enemyHealth <= 0) {
         audio_stop_sound(sfxWalkingChannel);  // Stop any sounds before destroying
+		audio_play_sound(sfxHitGhost, 20, false);
         instance_destroy();  // Remove the enemy instance from the game
     }
     xspd = 0;

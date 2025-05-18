@@ -60,6 +60,13 @@ function playerState_Free(){
 		
 	    xspd = lerp(xspd, targetXspd, 0.2);  // Smooth the x speed toward targetXspd
 	    x += xspd;                           // Update the x position
+		if(xspd > 0) {
+			xspd = 5;
+		} else {
+			xspd = -5;
+		}
+		show_debug_message(xspd);
+		
 	    // Stop updating when the character has moved 300 units from the starting x
 		// Stop if hitting a wall || pressing keys
 		
