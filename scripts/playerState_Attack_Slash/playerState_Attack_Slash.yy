@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"playerState_Attack_Slash",
   "parent":{
-    "name":"FunctionScript",
-    "path":"folders/FunctionScript.yy",
+    "name":"playerScript",
+    "path":"folders/FunctionScript/playerScript.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

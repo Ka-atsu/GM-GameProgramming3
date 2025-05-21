@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"playerState_Dash",
+  "%Name":"treeState_Attack",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"playerState_Dash",
+  "name":"treeState_Attack",
   "parent":{
-    "name":"playerScript",
-    "path":"folders/FunctionScript/playerScript.yy",
+    "name":"treeScript",
+    "path":"folders/FunctionScript/treeScript.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
