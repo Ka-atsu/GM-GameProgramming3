@@ -69,16 +69,16 @@ coyoteJumpTimer = 0;
 dynamicNum = 0;
 
 sfxWalkingChannel = -1;
-isWalking = false;
+//isWalking = false;
 
-followRadius = 500;
-radius = 1000;
-verticalFollowThreshold = 50;
+//followRadius = 500;
+//radius = 1000;
+//verticalFollowThreshold = 50;
 
-state = TREESTATE.MOVE;
+//state = TREESTATE.MOVE;
 
-enum TREESTATE
-{
-	MOVE,
-	ATTACK
-}
+//enum TREESTATE
+//{
+//	MOVE,
+//	ATTACK
+//}
