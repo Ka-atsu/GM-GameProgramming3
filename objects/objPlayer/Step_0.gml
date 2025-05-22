@@ -24,6 +24,7 @@ switch (state)
 		if !death {
 			audio_play_sound(sfxDeath, 20, false);
 			death = true;
+			audio_stop_sound(sfxEnemyTreeWalk);
 		}
 	}	
 	

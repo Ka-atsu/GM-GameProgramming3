@@ -9,6 +9,10 @@
 		playerHealth = ini_read_real("player", "hp", playerHealth);
 		global.sound_played = ini_read_real("checkpoint", "cp", image_index);
 	
-	
 		ini_close();
+		
+			if (audio_is_playing(objEnemyTree.sfxWalkingChannel)) {
+			audio_stop_sound(objEnemyTree.sfxWalkingChannel);
+			}
 	}
+	

@@ -8,12 +8,13 @@ function treeState_Move(){
 
 	// Calculate the straight-line distance (Euclidean distance)
 	var distanceToPlayer = sqrt(horizontalDistanceToPlayer * horizontalDistanceToPlayer + verticalDistanceToPlayer * verticalDistanceToPlayer);
-	show_debug_message(distanceToPlayer);
+	//show_debug_message(distanceToPlayer);
 	// Play walking sound only if the tree is moving and within range of the player
 
 	if (room == Level1) {
 	    if (distanceToPlayer <= radius && objEscapeR1.pause == false)  {
 	        if (!audio_is_playing(sfxWalkingChannel)) {
+				
 	            // Play the walking sound (only if it's not already playing)
 	            sfxWalkingChannel = audio_play_sound(sfxEnemyTreeWalk, 20, true); // Looping sound
 	        }
@@ -26,6 +27,7 @@ function treeState_Move(){
 	} else {
 		if (distanceToPlayer <= radius && objEscapeR2.pause == false)  {
 	        if (!audio_is_playing(sfxWalkingChannel)) {
+				show_debug_message(sfxWalkingChannel);
 	            // Play the walking sound (only if it's not already playing)
 	            sfxWalkingChannel = audio_play_sound(sfxEnemyTreeWalk, 20, true); // Looping sound
 	        }
