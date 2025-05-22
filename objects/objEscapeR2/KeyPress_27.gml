@@ -9,7 +9,7 @@
 
 
 if (pause == false ) {
-	pause = true;
+	pause = true
 } else {
 	pause = false;
 }

@@ -10,17 +10,33 @@ function treeState_Move(){
 	var distanceToPlayer = sqrt(horizontalDistanceToPlayer * horizontalDistanceToPlayer + verticalDistanceToPlayer * verticalDistanceToPlayer);
 	show_debug_message(distanceToPlayer);
 	// Play walking sound only if the tree is moving and within range of the player
-	if (distanceToPlayer <= radius) {
-	    if (!audio_is_playing(sfxWalkingChannel)) {
-	        // Play the walking sound (only if it's not already playing)
-	        sfxWalkingChannel = audio_play_sound(sfxEnemyTreeWalk, 20, true); // Looping sound
+
+	if (room == Level1) {
+	    if (distanceToPlayer <= radius && objEscapeR1.pause == false)  {
+	        if (!audio_is_playing(sfxWalkingChannel)) {
+	            // Play the walking sound (only if it's not already playing)
+	            sfxWalkingChannel = audio_play_sound(sfxEnemyTreeWalk, 20, true); // Looping sound
+	        }
+	    } else {
+	        if (audio_is_playing(sfxWalkingChannel)) {
+	            // Stop the walking sound if the player is out of range
+	            audio_stop_sound(sfxWalkingChannel);
+	        }
 	    }
 	} else {
-	    if (audio_is_playing(sfxWalkingChannel)) {
-	        // Stop the walking sound if the player is out of range
-	        audio_stop_sound(sfxWalkingChannel);
+		if (distanceToPlayer <= radius && objEscapeR2.pause == false)  {
+	        if (!audio_is_playing(sfxWalkingChannel)) {
+	            // Play the walking sound (only if it's not already playing)
+	            sfxWalkingChannel = audio_play_sound(sfxEnemyTreeWalk, 20, true); // Looping sound
+	        }
+	    } else {
+	        if (audio_is_playing(sfxWalkingChannel)) {
+	            // Stop the walking sound if the player is out of range
+	            audio_stop_sound(sfxWalkingChannel);
+	        }
 	    }
 	}
+
 
 	if (abs(distanceToPlayer) <= followRadius && verticalDistanceToPlayer <= verticalFollowThreshold) {
 		show_debug_message("Hello");
